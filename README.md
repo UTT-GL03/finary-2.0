@@ -33,3 +33,70 @@ Les services bancaires digitaux ont permi de numériser les factures, relevés d
 
     
 - Effet rebond sur l’utilisation excessive à cause de la facilité d’utilisation.
+
+  ## Identification des concurrents:
+
+Nous avons identifié plusieurs acteurs qui évoluent dans le même secteur d’activité que Finary.
+
+Nous nous sommes basés sur nos connaissances et sur des sources externes : [https://fr.semrush.com/website/finary.com/competitors/#:~:text=Comparaison des visites mensuelles %3A,.fr et avenuedesinvestisseurs.fr](https://fr.semrush.com/website/finary.com/competitors/#:~:text=Comparaison%20des%20visites%20mensuelles%20%3A,.fr%20et%20avenuedesinvestisseurs.fr).
+
+Nous avons dans un premier temps, dressé un tableau pour nous donner une idée des ressources utilisées par nos différents acteurs.
+
+Nous avons utilisé l’outil destiné au développeurs “inspect”, qui nous permet de consulter divers types de données. Les éléments qui nous ont semblé être pertinent sont le nombre de requete, le transfert réseau en MB, et les ressources chargées en MB.
+
+| Service | URL | Requêtes | Transfert réseau | Ressources chargées |
+| --- | --- | --- | --- | --- |
+| Finary | https://finary.com/fr | 70 | 2.1 MB | 5.9 MB |
+| Bankin | https://bankin.com/ | 35 | 1.7 MB | 3.3 MB |
+| Linxo | https://linxo.com/ | 42 | 1.8 MB | 7.2 MB |
+| Revolut | https://www.revolut.com/fr-FR/ | 95 | 46 200 MB | 49 000 MB |
+
+## **Scénarios d'usage et impacts**
+
+Nous allons prendre l’exemple d’un utilisateur quotidien, qui consulte ses investissements et ses comptes plusieurs fois par jours. Nous pouvons estimer qu’il consulte au moins 5 fois par jour la web app, le matin, le midi et plusieurs fois le soir. 
+
+Nous verrons donc avec 2 cas d’utilisation:
+
+- La consultation des informations
+- L’investissement de son patrimoine (moins quotidien en fonction du type d’utilisateur)
+
+### **Scénario : "Consultation de ses comptes et ses investissements"**
+
+1. L’utilisateur ouvre la web app dans un premier temps et se connecte si besoin.
+2. Il consulte la courbe sur la page d’accueil.
+3. Il change le filtre d’affichage temporel.
+4. Il consulte l’ensemble des monnaies dans lesquelles il a investit. 
+5. Il consulte détail d’un compte 
+6. Il retourne sur la page d’accueil 
+
+### **Scénario : Consultation des informations de la communauté**
+
+1. L’utilisateur charge la page d’accueil
+2. Il se rend dans la rubrique communauté.
+3. Il consulte le sommaire des articles les plus récents.
+4. Il clique sur l’un des articles pour le consulter.
+5. Il lit l’ensemble de l’article.
+6. Il retourne sur la rubrique des articles.
+
+## **Impact de l'exécution des scénarios auprès de différents services concurrents**
+
+L'EcoIndex d'une page (de A à G) est calculé (sources : [EcoIndex](https://www.ecoindex.fr/comment-ca-marche/), [Octo](https://blog.octo.com/sous-le-capot-de-la-mesure-ecoindex), [GreenIT](https://github.com/cnumr/GreenIT-Analysis/blob/acc0334c712ba68939466c42af1514b5f448e19f/script/ecoIndex.js#L19-L44)) en fonction du positionnement de cette page parmi les pages mondiales concernant :
+
+- le nombre de requêtes lancées,
+- le poids des téléchargements,
+- le nombre d'éléments du document.
+
+Nous avons choisi de comparer l'impact des scénarios sur les services concurrents de Finary que nous avons identifiés, et réferencés dans la partie “Identification des concurrents”.
+
+| **Service** | **Score (sur 100)** | **Classe** |
+| --- | --- | --- |
+| Finary | 86 | A 🟩 |
+| Bankin | 85 | A 🟩 |
+| Linxo | 85 | A 🟩 |
+| Revolut | 78 | B 🟩 |
+
+Tab.1 : Mesure de l'EcoIndex moyen de services de quotidiens nationaux.
+
+Les mesures de l'impact moyen de ces services (cf. Tab.1) révèlent des classes EcoIndex très faibles pour la plupart (E ou F) et médiocres pour certains (D).
+
+Les sites que nous avons selectionnés semblent suivre les bonnes pratiques (cashing etc), qui permettent d’améilorer drastiquement leur score.
