@@ -49,7 +49,7 @@ Nous avons utilisé l’outil destiné au développeurs “inspect”, qui nous 
 | Finary | https://finary.com/fr | 70 | 2.1 MB | 5.9 MB |
 | Bankin | https://bankin.com/ | 35 | 1.7 MB | 3.3 MB |
 | Linxo | https://linxo.com/ | 42 | 1.8 MB | 7.2 MB |
-| Revolut | https://www.revolut.com/fr-FR/ | 95 | 46 200 MB | 49 000 MB |
+| Revolut | https://www.revolut.com/fr-FR/ | 95 | 46,2 MB | 49 MB |
 
 ## **Scénarios d'usage et impacts**
 
@@ -97,6 +97,6 @@ Nous avons choisi de comparer l'impact des scénarios sur les services concurren
 
 Tab.1 : Mesure de l'EcoIndex moyen de services de quotidiens nationaux.
 
-Les mesures de l'impact moyen de ces services (cf. Tab.1) révèlent des classes EcoIndex très faibles pour la plupart (E ou F) et médiocres pour certains (D).
+Nous avons decidé d'analyser seulement le scénario n°1. Ce scénario est réalisable avec toutes les autres web app, alors que la fonctionnalité de news par la communauté est propre à Finary 
 
 Les sites que nous avons selectionnés semblent suivre les bonnes pratiques (cashing etc), qui permettent d’améilorer drastiquement leur score.
