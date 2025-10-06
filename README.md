@@ -95,6 +95,92 @@ Nous avons choisi de comparer l'impact des scénarios sur les services concurren
 | Linxo | 85 | A 🟩 |
 | Revolut | 78 | B 🟩 |
 
+## Business model
+
+## Bankin
+
+Bankin fonctionne principalement sur un modèle freemium combiné à des services B2B et des partenariats
+
+- L’application de base permet de regrouper tous ses comptes bancaires en un seul espace, gratuitement, pour le grand public
+- Un abonnement Premium propose des fonctionnalités avancées comme un meilleur suivi des dépenses, des notifications enrichies et la possibilité de créer des catégories personnalisées
+- Bankin propose également des produits et services pour les entreprises (B2B) : par exemple des solutions d’agrégation bancaire et d’enrichissement de données à destination de fintechs, banques, ou assureurs souhaitant intégrer des fonctionnalités de pilotage de comptes pour leurs propres clients
+- Des revenus sont générés via des partenariats (ex. cashback, offre de produits financiers partenaires via l’app, etc.)
+- Enfin, la société monétise l’accès à des APIs et des solutions Data pour l’analyse de transaction et la catégorisation, proposées en marque blanche
+
+## Linxo
+
+Linxo combine le modèle freemium, les services premium, les partenariats financiers et une offre B2B avec sa filiale Linxo Connect
+
+- L’app gratuite permet d’agréger des comptes et d’obtenir un suivi budgétaire de base, tandis que l’offre Premium apporte la catégorisation personnalisée, la recherche avancée et la prévision du solde
+- Linxo génère des revenus additionnels via l’aide à l’épargne, l’exécution de virements bancaires intégrés, et la recommandation de produits financiers partenaires (crédits, assurances, etc.)
+- Une part importante du business model est l’offre Linxo Connect qui propose une API d’agrégation bancaire et d’initiation de paiement sous licence de l’ACPR. Cette offre vise les banques, fintechs, experts-comptables et institutionnels qui souhaitent intégrer l’agrégation ou le paiement open banking dans leurs solutions (revenus B2B par abonnement ou usage)
+- Linxo bénéficie du soutien d’un grand groupe bancaire français et s’appuie sur la certification ISO 27001 pour rassurer partenaires et clients sur la sécurité
+
+## Revolut
+
+Revolut est une néobanque au business model multi-leviers, à la fois B2C et B2B.
+
+- L’application propose un compte courant gratuit avec IBAN, carte bancaire, transferts, change multi-devises, suivi de budget et analytics.
+- Plusieurs formules d’abonnements Premium/Metal (paiement mensuel) donnent accès à des avantages (assurances, plafonds étendus, opérations gratuites, cashback, trading…)
+- Les revenus sont aussi générés via les frais d’utilisation (ex : retraits au-delà des plafonds), commissions sur change, investissement et trading (actions, cryptos), cashback sur achats, ventes de services d’assurance, etc.
+- Sur le segment B2B, Revolut propose Revolut Business, une solution payante de gestion de comptes professionnels et d’outils pour PME, incluant facturation, cartes d’équipes, paiements internationaux, API, etc.
+- Revolut monétise aussi la distribution de produits partenaires financiers au sein de l’app (prêts, assurances, crypto), prenant une commission sur la souscription et l’utilisation
+
+---
+
+| Entreprise | Modèle principal | Modèles complémentaires | B2B/Partenariats |
+| --- | --- | --- | --- |
+| Bankin | Freemium grand public | Premium, cashback, Data/API | Oui (agrégation, data, API, marque blanche) |
+| Linxo | Freemium + Premium | Reco produits, virements intégrés | Oui (Linxo Connect API agrégation, paiement) |
+| Revolut | Compte bancaire + abonnement | Commissions, trading, cashback | Oui (Revolut Business, produits partenaires) |
+
+Voici un tableau plus précis sur les divers utilisation des services en fonction des status:
+
+| **Service** | **Visiteur anonyme** | **Abonné (Premium/Payant)** |
+| --- | --- | --- |
+| Bankin | - Consultation de comptes agrégés de base
+- Vue globale des soldes
+- Catégorisation automatique standard | - Catégorisation personnalisée
+- Recherche avancée de transactions
+- Suivi budgétaire avancé
+- Export de données
+- Alertes personnalisées
+- Accès prioritaire au support |
+| Linxo | - Agrégation multi-comptes bancaire
+- Visualisation budgétaire simple
+- Prévision de solde standard
+- Catégorisation automatique de base | - Création de ses propres catégories
+- Prévisions de solde détaillées
+- Recherche par montant/date/catégorie illimitée
+- Suivi précis de l’épargne et des investissements
+- Virements bancaires directement via l’appli
+- Support et assistance prioritaire |
+| Revolut | - Compte bancaire gratuit (IBAN)
+- Carte virtuelle et physique standard
+- Paiements et transferts de base
+- Change multi-devises à tarif standard | - Cartes haut de gamme
+- Plafonds de retrait supérieurs
+- Assurances premium (voyage, achat, etc.)
+- Accès à l’investissement (cryptos/actions) sans frais ou à frais réduits
+- Cashback sur achats
+- Support prioritaire |
+
+Comme nos concurrents fonctionnent tous sur un model freemium, nous pensons resté sur ce même modèle pour ne pas perdre l’utilisateur.
+
+Bankin propose ses services à 3.33€ / mois, Finary 12€ /mois, Linxo 4€/mois et Revolut 10€/mois. 
+
+Nous avons remarqué que tous ces concurrents proposent un large panel de fonctionnalité pour assurer leur rentabilité. Leur offre devient donc beaucoup plus large et parfois moins claire. 
+
+Or nous voulons principalement nous concentrer sur la gestion des dépenses, sans ajouter une multitude de produit dans le produit. Nous pensons donc pouvoir nous différencier par la simplicité et le cout plus réduit que nous pouvons proposer, proposer un abonnement à 2.99€.
+
+Il nous faudrait donc 1190 abonnés pour pouvoir verser un salaire.
+
+En nous basant sur le salaire moyen, qui s’élève à 3569€  selon l’URSAF.
+
+Les 2 fonctionnalités sur lesquelles nous allons nous concentrer sont:
+
+- Referencement des dépenses
+- Identification des doublons & économie possibles.
 Tab.1 : Mesure de l'EcoIndex moyen de services de quotidiens nationaux.
 
 Nous avons decidé d'analyser seulement le scénario n°1. Ce scénario est réalisable avec toutes les autres web app, alors que la fonctionnalité de news par la communauté est propre à Finary 
