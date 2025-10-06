@@ -137,34 +137,11 @@ Revolut est une néobanque au business model multi-leviers, à la fois B2C et B2
 Voici un tableau plus précis sur les divers utilisation des services en fonction des status:
 
 
-| **Service** | **Visiteur anonyme** | **Abonné (Premium/Payant)** |
+| Service | Visiteur anonyme | Abonné (Premium/Payant) |
 | --- | --- | --- |
-| Bankin | Consultation de comptes agrégés de base
-Vue globale des soldes
-Catégorisation automatique standard | Catégorisation personnalisée
-Recherche avancée de transactions
-Suivi budgétaire avancé
-Export de données
-Alertes personnalisées
-Accès prioritaire au support |
-| Linxo | Agrégation multi-comptes bancaire 
-Visualisation budgétaire simple
-Prévision de solde standard
-Catégorisation automatique de base | Création de ses propres catégories
-Prévisions de solde détaillées
-Recherche par montant/date/catégorie illimitée
-Suivi précis de l’épargne et des investissements
-Virements bancaires directement via l’appli
-Support et assistance prioritaire |
-| Revolut | Compte bancaire gratuit (IBAN)
-Carte virtuelle et physique standard
-Paiements et transferts de base
-Change multi-devises à tarif standard | Cartes haut de gamme
-Plafonds de retrait supérieurs
-Assurances premium (voyage, achat, etc.)
-Accès à l’investissement (cryptos/actions) sans frais ou à frais réduits
-Cashback sur achats
-Support prioritaire |
+| Bankin | Consultation de comptes agrégés de base - Vue globale des soldes - Catégorisation automatique standard | Catégorisation personnalisée - Recherche avancée de transactions - Suivi budgétaire avancé - Export de données - Alertes personnalisées - Accès prioritaire au support |
+| Linxo | Agrégation multi-comptes bancaire - Visualisation budgétaire simple - Prévision de solde standard - Catégorisation automatique de base | Création de ses propres catégories - Prévisions de solde détaillées - Recherche par montant/date/catégorie illimitée - Suivi précis de l’épargne et des investissements - Virements bancaires directement via l’appli - Support et assistance prioritaire |
+| Revolut | Compte bancaire gratuit (IBAN) - Carte virtuelle et physique standard - Paiements et transferts de base - Change multi-devises à tarif standard | Cartes haut de gamme - Plafonds de retrait supérieurs - Assurances premium (voyage, achat, etc.) - Accès à l’investissement (cryptos/actions) sans frais ou à frais réduits - Cashback sur achats - Support prioritaire |
 
 Comme nos concurrents fonctionnent tous sur un model freemium, nous pensons resté sur ce même modèle pour ne pas perdre l’utilisateur.
 
