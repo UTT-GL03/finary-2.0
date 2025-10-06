@@ -157,10 +157,10 @@ En nous basant sur le cout salaire median, qui s’élève à 3569€  selon l�
 
 Les 2 fonctionnalités sur lesquelles nous allons nous concentrer sont:
 
-- Referencement des dépenses
-- Identification des doublons & économie possibles.
+- Référencement simple des dépenses
+- Identification des doublons & économie possibles, via des conseils donnés aux utilisateurs
 
-Les autres business model, dons, publicité ne nous paraissent absoulement pas viable pour notre projet, étant donné que tous nos concurrents proposent déjà ces services à des prix très accéssibles, sans publicité, qui appauvri l’experience utilisateur.
+Les autres business model, dons, publicité ne nous paraissent absolument pas viable pour notre projet, étant donné que tous nos concurrents proposent déjà ces services à des prix très accéssibles, sans publicité, qui appauvri l’experience utilisateur.
 
 Nous sommes bien conscient que cet objectif peut être compliqué à atteindre. 
 
