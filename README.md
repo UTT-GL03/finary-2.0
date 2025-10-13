@@ -164,6 +164,14 @@ Les autres business model, dons, publicité ne nous paraissent absolument pas vi
 
 Nous sommes bien conscient que cet objectif peut être compliqué à atteindre. 
 
+## Maquette de l'interface et échantillon de données:
+
+Après avoir défini les différents scénarios d’utilisation , et surtout les fonctionnalités techniques que nous voulons implementer dans notre application, nous avons determiné les ressources web qui seront disponibles:
+
+le ”/” sera le tableau de bord de l’utilisateur, sur lequel il peut voir l’argent qui lui reste, et un rapide aperçu de ses dépenses et revenus.
+
+Nous aurons ensuite les deux ressources: “/income” et “/outcome”, qui afficheront de manière plus détaillées, à l’aide de graphique, les dépenses les revenues, les catégories, les doublons, et une évolution au cours du temps. L’utilisateur pourra aussi ajouter, modifier ou supprimer ces variables.
+
 Nous avons cependant pensé à plusieurs stratégies pour toucher notre marché de Niche:
 
 - Publication de contenu sur les réseaux  pour créer une communauté
