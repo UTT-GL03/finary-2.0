@@ -164,6 +164,12 @@ Les autres business model, dons, publicité ne nous paraissent absolument pas vi
 
 Nous sommes bien conscient que cet objectif peut être compliqué à atteindre. 
 
+Nous avons cependant pensé à plusieurs stratégies pour toucher notre marché de Niche:
+
+- Publication de contenu sur les réseaux  pour créer une communauté
+- Système de parrainage
+- Subvention de l’état: Nous pensons que la littératie financière de la population peut être favorable à l’état.
+
 ## Maquette de l'interface et échantillon de données:
 
 Après avoir défini les différents scénarios d’utilisation , et surtout les fonctionnalités techniques que nous voulons implementer dans notre application, nous avons determiné les ressources web qui seront disponibles:
@@ -172,8 +178,11 @@ le ”/” sera le tableau de bord de l’utilisateur, sur lequel il peut voir l
 
 Nous aurons ensuite les deux ressources: “/income” et “/outcome”, qui afficheront de manière plus détaillées, à l’aide de graphique, les dépenses les revenues, les catégories, les doublons, et une évolution au cours du temps. L’utilisateur pourra aussi ajouter, modifier ou supprimer ces variables.
 
-Nous avons cependant pensé à plusieurs stratégies pour toucher notre marché de Niche:
+**Maquette du prototype**
+![20251013_155713](https://github.com/user-attachments/assets/59c33783-07a7-4e14-987b-47f5553687f0)
+Fig.1: type de page pour la visualisation du compte / dashboard
+![20251013_163544](https://github.com/user-attachments/assets/99593fb3-597b-4b82-b6f0-7ef5e45abdb2)
+Fig.2 : type de page détaillant chanque entité (Income & Outcome)
 
-- Publication de contenu sur les réseaux  pour créer une communauté
-- Système de parrainage
-- Subvention de l’état: Nous pensons que la littératie financière de la population peut être favorable à l’état.
+
+
