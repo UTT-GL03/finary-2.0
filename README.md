@@ -179,10 +179,18 @@ le ”/” sera le tableau de bord de l’utilisateur, sur lequel il peut voir l
 Nous aurons ensuite les deux ressources: “/income” et “/outcome”, qui afficheront de manière plus détaillées, à l’aide de graphique, les dépenses les revenues, les catégories, les doublons, et une évolution au cours du temps. L’utilisateur pourra aussi ajouter, modifier ou supprimer ces variables.
 
 **Maquette du prototype**
+
 ![20251013_155713](https://github.com/user-attachments/assets/59c33783-07a7-4e14-987b-47f5553687f0)
+
 Fig.1: type de page pour la visualisation du compte / dashboard
+
 ![20251013_163544](https://github.com/user-attachments/assets/99593fb3-597b-4b82-b6f0-7ef5e45abdb2)
+
 Fig.2 : type de page détaillant chanque entité (Income & Outcome)
+
+Dans une démarche plus écoresponsable, les dépenses et revenus sont pour l'instant limités à ceux du du mois courant (entre 30 et 40).
+
+Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées via dummy-json. Bien que fictives, ces données correspondent à la structure des services concurrents : les dépenses et revenus comportent une catégorie, un montant, une description de taille libre, une date, et un utilisateur associé.
 
 
 
