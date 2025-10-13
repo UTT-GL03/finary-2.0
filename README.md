@@ -190,7 +190,7 @@ Fig.2 : type de page détaillant chanque entité (Income & Outcome)
 
 Dans une démarche plus écoresponsable, les dépenses et revenus sont pour l'instant limités à ceux du du mois courant (entre 30 et 40).
 
-Pour des raisons de respect des droits d'auteurs, nous utilisons des données générées via dummy-json. Bien que fictives, ces données correspondent à la structure des services concurrents : les dépenses et revenus comportent une catégorie, un montant, une description de taille libre, une date, et un utilisateur associé.
+Pour éviter tout problème liés aux droits d'auteurs, nous utilisons des données générées via dummy-json. Ces données correspondent à la structure de nos principaux concurrents : chaque dépense et chaque revenu comportent une catégorie, un montant, une description de taille libre, une date, et un utilisateur associé. Chaque utilisateur dispose alors de deux listes associées, la liste des dépenses et la liste des revenus.
 
 
 
