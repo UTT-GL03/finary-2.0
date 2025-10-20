@@ -7,6 +7,8 @@ import { Incomes } from "./components/incomes";
 import { Outcomes } from "./components/outcomes";
 import '@picocss/pico/css/pico.css'
 
+Chart.register(CategoryScale);
+
 function App() {
   return (
     <HashRouter >
