@@ -247,66 +247,55 @@ function App() {
     
 
   return (
-    <div>
+    <main className="container">
       <h1>Bonjour {userName}</h1>
-      <div>
-        <h1>Data</h1>
-        <p>Balance: {totalIncome + totalOutcome}</p>
-        <div style={{ maxWidth: '800px', margin: '20px auto' }}>
-          <canvas ref={chartRef}></canvas>
-        </div>
-      </div>
       
-      <div className="chart-box">
-        <div className="chart-title">
-          <h2>Income</h2>
-        </div>
-        <div className="chart-content">
-          <div className="chart-canvas">
-            <canvas ref={IncomeChartRef}></canvas>
-          </div>
-          <div className="chart-data">
-            <p style={{ margin: 0, fontWeight: 600 }}>Total: {totalIncome}€</p>
-            <div>
-              {Object.entries(incomesCategoriesCount).map(([key, value]) => (
-                <div key={key} className="key-data">
-                  <span>{key}</span>
-                  <span style={{ fontWeight: 600 }}>{value}€</span>
-                </div>
-              ))}
-              {Object.keys(incomesCategoriesCount).length === 0 && (
-                <div className="key-data">No income categories</div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+      <article>
+        <h2>Global data</h2>
+        <p>Balance: {totalIncome + totalOutcome}€</p>
+        <canvas ref={chartRef}></canvas>
+      </article>
 
-      <div className="chart-box">
-        <div className="chart-title">
+      <article>
+        <header>
+          <h2>Income</h2>
+        </header>
+        <div className="grid">
+          <div>
+            <canvas ref={IncomeChartRef} className="pie-chart"></canvas>
+          </div>
+          <div>
+            <p><strong>Total: {totalIncome}€</strong></p>
+            {Object.entries(incomesCategoriesCount).map(([key, value]) => (
+              <p key={key}>
+                {key}: <strong>{value}€</strong>
+              </p>
+            ))}
+            {Object.keys(incomesCategoriesCount).length === 0 && <p>No income categories</p>}
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <header>
           <h2>Outcome</h2>
-        </div>
-        <div className="chart-content">
-          <div className="chart-canvas">
-            <canvas ref={OutcomeChartRef}></canvas>
+        </header>
+        <div className="grid">
+          <div>
+            <canvas ref={OutcomeChartRef} className="pie-chart"></canvas>
           </div>
-          <div className="chart-data">
-            <p style={{ margin: 0, fontWeight: 600 }}>Total: {totalOutcome}€</p>
-            <div>
-              {Object.entries(outcomesCategoriesCount).map(([key, value]) => (
-                <div key={key} className="key-data">
-                  <span>{key}</span>
-                  <span style={{ fontWeight: 600 }}>{value}€</span>
-                </div>
-              ))}
-              {Object.keys(outcomesCategoriesCount).length === 0 && (
-                <div className="key-data">No outcome categories</div>
-              )}
-            </div>
+          <div>
+            <p><strong>Total: {totalOutcome}€</strong></p>
+            {Object.entries(outcomesCategoriesCount).map(([key, value]) => (
+              <p key={key}>
+                {key}: <strong>{value}€</strong>
+              </p>
+            ))}
+            {Object.keys(outcomesCategoriesCount).length === 0 && <p>No outcome categories</p>}
           </div>
         </div>
-      </div>
-    </div>
+      </article>
+    </main>
   );
 }
 
