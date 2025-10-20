@@ -59,8 +59,8 @@ export function LineChart({ chartData }) {
     };
   }, [chartData]);
   return (
-    <div className="card">
+    <article>
     <canvas ref={chartRef}></canvas>
-    </div>
+    </article>
   );
 }
