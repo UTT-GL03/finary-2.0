@@ -40,3 +40,67 @@
 .read-the-docs {
   color: #888;
 }
+/* ...existing code... */
+
+.chart-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.chart-box h2 {
+  margin: 0 0 16px 0;
+  text-align: center;
+}
+
+.chart-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.chart-canvas {
+  flex: 0 0 360px;
+  min-width: 280px;
+  max-width: 420px;
+  height: 300px;
+}
+
+.chart-data {
+  flex: 1 1 320px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: center;
+}
+
+.key-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 720px) {
+  .chart-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .chart-card,
+  .chart-data {
+    width: 100%;
+    max-width: 420px;
+  }
+  .chart-canvas {
+    height: 240px;
+  }
+}
