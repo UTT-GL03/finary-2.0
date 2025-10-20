@@ -5,10 +5,11 @@ import { Dashboard } from "./components/dashboard";
 import { Detail } from "./components/detail";
 import { Incomes } from "./components/incomes";
 import { Outcomes } from "./components/outcomes";
+import '@picocss/pico/css/pico.css'
 
 function App() {
   return (
-    <HashRouter>
+    <HashRouter >
       <header>
         <h1>
           <img src={reactLogo} alt="React logo" />
