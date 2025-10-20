@@ -31,7 +31,7 @@ export function Dashboard() {
     outcomesCategoriesCount[outcome.category] =
       (outcomesCategoriesCount[outcome.category] || 0) + outcome.amount;
   });
-  console.log("cat : ", incomesCategoriesCount);
+
 
   return (
     <div>
@@ -40,9 +40,9 @@ export function Dashboard() {
       <p>Balance: {totalIncome + totalOutcome}</p>
       <ul>
         {expenses.map((expense) => (
-          <div>
-            <li key={expense.id}>{expense.amount}</li>
-            <li key={expense.id}>{expense.created_at}</li>
+          <div key={expense.id}>
+            <li >{expense.amount}</li>
+            <li >{expense.created_at}</li>
           </div>
         ))}
       </ul>
