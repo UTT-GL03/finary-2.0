@@ -190,5 +190,86 @@ Dans une démarche plus écoresponsable, les dépenses et revenus sont pour l'in
 
 Pour éviter tout problème liés aux droits d'auteurs, nous utilisons des données générées via dummy-json. Ces données correspondent à la structure de nos principaux concurrents : chaque dépense et chaque revenu comportent une catégorie, un montant, une description de taille libre, une date, et un utilisateur associé. Chaque utilisateur dispose alors de deux listes associées, la liste des dépenses et la liste des revenus.
 
+## **Implémentation du scénario prioritaire**
 
+### **Étape de prototypage : Données chargées de manière statique**
+
+Cette première version qui a été developpée est très simplifiée, et permet simplement d’accéder à des informations de “bases”, que nous estimions les plus importantes pour notre application. Nous avons nommé cette version: `v1.0.0` 
+
+Celle-ci est caracterisée par:
+
+- l'échantillon de données est encore chargé dans le code de manière statique,
+- les fonctionnalités implémentées ne sont que celles nécessaires pour suivre le scénario prioritaire ("**Consultation de ses comptes et ses investissements**").
+
+**Page d’accueil**
+
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 07 40" src="https://github.com/user-attachments/assets/ba0afaf7-2a04-4cf3-9d66-71d5896b317b" />
+
+
+**Figure 3: Page d’accueil**
+
+Pour rappel notre scénario principal était le suivant:
+
+**Scénario : "Consultation de ses comptes et ses investissements"**
+
+1. Il consulte la courbe sur la page d’accueil.
+2. Il change le filtre d’affichage temporel.
+3. Il consulte détail d’un compte
+4. Il retourne sur la page d’accueil
+
+Comme nous nous concentrons plus sur la gestion du patrimoine et non l’investissement, nos pages et le types de ressources restent similaires.
+
+Sur notre page d’accueil l’utilisateur peut consulter les courbes de ces entrées et sorties d’argent. Il peut filtrer de manière temporelle, et peut consulter le détail de toutes ses dépenses et toutes ses entrées d’argent. 
+
+Nous pouvons donc réaliser le scénario de manière complétement similaires à nos sites concurrents.
+
+Pour comprendre de manière visuelle les étapes du scénario, nous avons dans la figure 3 la page d’accueil qui affiche les graphiques, avec un filtre qui nous permet de choisir la chronologie des informations à afficher.
+
+Dans un second temps, nous avons les “incomes” et “outcomes”.
+
+
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 07 51" src="https://github.com/user-attachments/assets/1214987e-65b9-4c80-b35f-adca00681cc3" />
+
+**Figure 4: Income et outcome**
+
+On peut ensuite cliquer sur “view all”.
+
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 08 19" src="https://github.com/user-attachments/assets/204a4746-9e6e-4936-8391-eddcb829a0ac" />
+
+
+Puis on peut consulter les détails précis d’une action:
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 08 39" src="https://github.com/user-attachments/assets/dae714b1-a5e2-46ae-9b58-71444ad8cd00" />
+
+
+Dans cette première version, nous avons essayé d’être les plus minimalistes possible en terme d’interface, mais nous étions néanmoins obligé d’utiliser des librairies pour afficher les données sous forme de graphiques et tableaux.
+
+Maintenant nous pouvons commencer les mesures.
+
+Tout d’abord sur notre page d’accueil:
+
+| **EcoIndex** | **GES (gCO2e)** | **Taille du DOM** | **Requêtes** | **Taille de la page (ko)** |
+| --- | --- | --- | --- | --- |
+| Mode "développement" | 80 A 🟦 | 58 | 29 | 2240 |
+| Mode "pré-production" | 93 A 🟦 | 57 | 4 | 160 |
+
+Au départ, nous avions développé notre web app en utilisant un hasRouter, qui permet de faire du rendu par fragment. 
+
+Seulement, lorsque nous voulions faire les mesures avec le logiciel ecoIndex App, l’outil ne reconnaissait pas le changement des pages.
+
+Nous avons donc opté pour un router traditionnel.
+
+Après ces modifications, nous avons pu facilement mesuré les données demandées:
+
+| Page | Grade | Ecoindex | Eau (cl) | GES (gCO2e) | Nb de requêtes | Taille de la page (Ko) | Taille du DOM |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| http://localhost:4173/ | A | 93/100 | 17.10 | 1.14 | 4 | 161.120 | 57 |
+| http://localhost:4173/incomes | A | 85/100 | 19.60 | 1.30 | 4 | 1.205 | 300 |
+| http://localhost:4173/9 | A | 97/100 | 15.90 | 1.06 | 4 | 1.205 | 5 |
+| http://localhost:4173/bis | A | 97/100 | 15.90 | 1.06 | 4 | 1.205 | 5 |
+
+Nous précisions que ces mesures concernent les chargement des pages avec des données **statiques.**
+
+Pour simuler le fetch des données, nous avons utilisé la librarie fetch, et modifié l’emplacement de notre fichier “data.json” dans le dossier public.
+
+Nous avons donc du adapter le code, pour réellement pouvoir le rendre dynamique. Cette version est donc la v1.0.1.
 
