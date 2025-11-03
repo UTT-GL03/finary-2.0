@@ -62,12 +62,10 @@ Nous verrons donc avec 2 cas d’utilisation:
 
 ### **Scénario : "Consultation de ses comptes et ses investissements"**
 
-1. L’utilisateur ouvre la web app dans un premier temps et se connecte si besoin.
-2. Il consulte la courbe sur la page d’accueil.
-3. Il change le filtre d’affichage temporel.
-4. Il consulte l’ensemble des monnaies dans lesquelles il a investit. 
-5. Il consulte détail d’un compte 
-6. Il retourne sur la page d’accueil 
+1. Il consulte la courbe sur la page d’accueil.
+2. Il change le filtre d’affichage temporel.
+3. Il consulte détail d’un compte
+4. Il retourne sur la page d’accueil
 
 ### **Scénario : Consultation des informations de la communauté**
 
