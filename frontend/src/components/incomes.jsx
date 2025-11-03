@@ -11,11 +11,11 @@ export function Incomes() {
     const tableContent =[];
 
     incomes.forEach((income) => {
-        tableContent.push([income.amount, income.created_at, income.category]);
+        tableContent.push([income.amount, income.created_at, income.category, income.id]);
     })
 
   const taleData = {
-    headers: ['amount', 'date', 'category'],
+    headers: ['amount', 'date', 'category', 'action'],
     content: tableContent
   }
 

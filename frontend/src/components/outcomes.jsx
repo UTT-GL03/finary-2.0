@@ -8,11 +8,11 @@ export function Outcomes() {
     const tableContent =[];
 
     outcomes.forEach((outcome) => {
-        tableContent.push([outcome.amount, outcome.created_at, outcome.category]);
+        tableContent.push([outcome.amount, outcome.created_at, outcome.category, outcome.id]);
     })
 
     const tableData = {
-        headers: ['amount', 'date', 'category'],
+        headers: ['amount', 'date', 'category', 'action'],
         content: tableContent
     }
 
