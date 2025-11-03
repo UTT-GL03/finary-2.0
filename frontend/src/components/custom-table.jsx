@@ -7,14 +7,18 @@ export function CustomTable({ tableData }) {
             {tableData.headers.map((header) => (
               <th scope="col"> {header}</th>
             ))}
+            
           </tr>
         </thead>
         <tbody>
           {tableData.content.map((content, id) => (
             <tr id={id}>
+              
               {content.map((value, key) => (
-                <td id={key}>{value}</td>
+                <td id={key}>{key !== content.length - 1 ? value : <a href={`/#/${value}`}>View</a>}</td>
               ))}
+              
+              
             </tr>
           ))}
         </tbody>
