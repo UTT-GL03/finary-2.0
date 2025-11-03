@@ -3,7 +3,6 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useEffect, useRef, useState } from "react";
 
-import { data } from "../../lib/data";
 import { Link } from "react-router";
 import { TimeFilter } from "./time-filter";
 
@@ -18,60 +17,96 @@ export function Dashboard() {
   const OutcomeChartRef = useRef(null);
   const OutcomeChartInstance = useRef(null);
 
+  // State variables
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [currentFilter, setCurrentFilter] = useState("all");
+  const [expenses, setExpenses] = useState([]);
 
-  const userId = data.users.find((user) => user.user == userName)?.user_id;
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalOutcome, setTotalOutcome] = useState(0);
+  const [incomesCategoriesCount, setIncomesCategoriesCount] = useState({});
+  const [outcomesCategoriesCount, setOutcomesCategoriesCount] = useState({});
+  const [availableMonths, setAvailableMonths] = useState([]);
 
-  const expenses = data.expenses.filter(
-    (expense) => expense.user_id === userId
-  );
-
-  const incomes = expenses.filter((expense) => expense.amount > 0);
-  const outcomes = expenses.filter((expense) => expense.amount < 0);
-
-  let totalIncome = 0;
-  let totalOutcome = 0;
-
-  incomes.forEach((income) => (totalIncome += income.amount));
-  outcomes.forEach((outcome) => (totalOutcome += outcome.amount));
-
-  const incomesCategoriesCount = {};
-  const outcomesCategoriesCount = {};
-  incomes.forEach((income) => {
-    incomesCategoriesCount[income.category] =
-      (incomesCategoriesCount[income.category] || 0) + income.amount;
-  });
-
-  outcomes.forEach((outcome) => {
-    outcomesCategoriesCount[outcome.category] =
-      (outcomesCategoriesCount[outcome.category] || 0) + outcome.amount;
-  });
-
-  // Get available months from expenses data
-  const availableMonths = [];
-  const monthsSet = new Set();
-  expenses.forEach((expense) => {
-    const date = new Date(expense.created_at.replace(" ", "T"));
-    const monthYear = date.toLocaleString("default", {
-      month: "short",
-      year: "numeric",
-    });
-    if (!monthsSet.has(monthYear)) {
-      monthsSet.add(monthYear);
-      availableMonths.push({
-        value: monthYear,
-        label: monthYear,
+  //We fake fetch here the data.
+  useEffect(() => {
+    setLoading(true);
+    // Use the imported data directly instead of fetching
+    fetch("/data.json")
+      .then((x) => x.json())
+      .then((data) => {
+        console.log("data: ", data);
+        setData(data);
       });
-    }
-  });
-  
-  // Sort months chronologically
-  availableMonths.sort((a, b) => {
-    const dateA = new Date(a.value);
-    const dateB = new Date(b.value);
-    return dateA - dateB;
-  });
+    setLoading(false);
+  }, []);
 
+  // Process data when it's loaded
+  useEffect(() => {
+    if (!data) return;
+
+    const userId = data.users.find((user) => user.user == userName)?.user_id;
+
+    const userExpenses = data.expenses.filter(
+      (expense) => expense.user_id === userId
+    );
+
+    const userIncomes = userExpenses.filter((expense) => expense.amount > 0);
+    const userOutcomes = userExpenses.filter((expense) => expense.amount < 0);
+
+    let incomeTotal = 0;
+    let outcomeTotal = 0;
+
+    userIncomes.forEach((income) => (incomeTotal += income.amount));
+    userOutcomes.forEach((outcome) => (outcomeTotal += outcome.amount));
+
+    const incomesCategories = {};
+    const outcomesCategories = {};
+    userIncomes.forEach((income) => {
+      incomesCategories[income.category] =
+        (incomesCategories[income.category] || 0) + income.amount;
+    });
+
+    userOutcomes.forEach((outcome) => {
+      outcomesCategories[outcome.category] =
+        (outcomesCategories[outcome.category] || 0) + outcome.amount;
+    });
+
+    // Get available months from expenses data
+    const months = [];
+    const monthsSet = new Set();
+    userExpenses.forEach((expense) => {
+      const date = new Date(expense.created_at.replace(" ", "T"));
+      const monthYear = date.toLocaleString("default", {
+        month: "short",
+        year: "numeric",
+      });
+      if (!monthsSet.has(monthYear)) {
+        monthsSet.add(monthYear);
+        months.push({
+          value: monthYear,
+          label: monthYear,
+        });
+      }
+    });
+
+    // Sort months chronologically
+    months.sort((a, b) => {
+      const dateA = new Date(a.value);
+      const dateB = new Date(b.value);
+      return dateA - dateB;
+    });
+
+    // Update all state variables
+    setExpenses(userExpenses);
+
+    setTotalIncome(incomeTotal);
+    setTotalOutcome(outcomeTotal);
+    setIncomesCategoriesCount(incomesCategories);
+    setOutcomesCategoriesCount(outcomesCategories);
+    setAvailableMonths(months);
+  }, [data]);
 
   //generate colors for pie chart
   const generateColors = (numColors) => {
@@ -232,7 +267,7 @@ export function Dashboard() {
                 label: function (context) {
                   const label = context.label || "";
                   const value = context.parsed || 0;
-                  return label + ": " + value + "€";
+                  const total = context.dataset.data.reduce((a, b) => a + b, 0);
                   const percentage = ((value / total) * 100).toFixed(1);
                   return label + ": " + value + "€ (" + percentage + "%)";
                 },
@@ -289,7 +324,9 @@ export function Dashboard() {
                 label: function (context) {
                   const label = context.label || "";
                   const value = context.parsed || 0;
-                  return label + ": " + value + "€";
+                  const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                  const percentage = ((value / total) * 100).toFixed(1);
+                  return label + ": " + value + "€ (" + percentage + "%)";
                 },
               },
             },
@@ -308,87 +345,92 @@ export function Dashboard() {
   return (
     <main className="container">
       <h1>Bonjour {userName}</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <article>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <h2>Global data</h2>
+              <TimeFilter
+                currentFilter={currentFilter}
+                setCurrentFilter={setCurrentFilter}
+                availableMonths={availableMonths}
+              />
+            </div>
+            <p>Balance: {totalIncome + totalOutcome}€</p>
+            <canvas ref={chartRef} />
+          </article>
 
-      <article>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <h2>Global data</h2>
-          <TimeFilter
-            currentFilter={currentFilter}
-            setCurrentFilter={setCurrentFilter}
-            availableMonths={availableMonths}
-          />
-        </div>
-        <p>Balance: {totalIncome + totalOutcome}€</p>
-        <canvas ref={chartRef} />
-      </article>
+          <article>
+            <header
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <h2>Income</h2>
+              <Link to="/incomes">View all</Link>
+            </header>
+            <div className="grid">
+              <div>
+                <canvas ref={IncomeChartRef} className="pie-chart"></canvas>
+              </div>
+              <div>
+                <p>
+                  <strong>Total: {totalIncome}€</strong>
+                </p>
+                {Object.entries(incomesCategoriesCount).map(([key, value]) => (
+                  <p key={key}>
+                    {key}: <strong>{value}€</strong>
+                  </p>
+                ))}
+                {Object.keys(incomesCategoriesCount).length === 0 && (
+                  <p>No income categories</p>
+                )}
+              </div>
+            </div>
+          </article>
 
-      <article>
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <h2>Income</h2>
-          <Link to="/incomes">View all</Link>
-        </header>
-        <div className="grid">
-          <div>
-            <canvas ref={IncomeChartRef} className="pie-chart"></canvas>
-          </div>
-          <div>
-            <p>
-              <strong>Total: {totalIncome}€</strong>
-            </p>
-            {Object.entries(incomesCategoriesCount).map(([key, value]) => (
-              <p key={key}>
-                {key}: <strong>{value}€</strong>
-              </p>
-            ))}
-            {Object.keys(incomesCategoriesCount).length === 0 && (
-              <p>No income categories</p>
-            )}
-          </div>
-        </div>
-      </article>
-
-      <article>
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <h2>Outcome</h2>
-          <Link to="/outcomes">View all</Link>
-        </header>
-        <div className="grid">
-          <div>
-            <canvas ref={OutcomeChartRef} className="pie-chart"></canvas>
-          </div>
-          <div>
-            <p>
-              <strong>Total: {totalOutcome}€</strong>
-            </p>
-            {Object.entries(outcomesCategoriesCount).map(([key, value]) => (
-              <p key={key}>
-                {key}: <strong>{value}€</strong>
-              </p>
-            ))}
-            {Object.keys(outcomesCategoriesCount).length === 0 && (
-              <p>No outcome categories</p>
-            )}
-          </div>
-        </div>
-      </article>
+          <article>
+            <header
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <h2>Outcome</h2>
+              <Link to="/outcomes">View all</Link>
+            </header>
+            <div className="grid">
+              <div>
+                <canvas ref={OutcomeChartRef} className="pie-chart"></canvas>
+              </div>
+              <div>
+                <p>
+                  <strong>Total: {totalOutcome}€</strong>
+                </p>
+                {Object.entries(outcomesCategoriesCount).map(([key, value]) => (
+                  <p key={key}>
+                    {key}: <strong>{value}€</strong>
+                  </p>
+                ))}
+                {Object.keys(outcomesCategoriesCount).length === 0 && (
+                  <p>No outcome categories</p>
+                )}
+              </div>
+            </div>
+          </article>
+        </>
+      )}
     </main>
   );
 }

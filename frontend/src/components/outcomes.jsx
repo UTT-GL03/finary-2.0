@@ -1,34 +1,63 @@
-import { data } from '../../lib/data';
+import { useEffect, useState } from "react";
+
 import { LineChart } from "./line-chart";
 import { CustomTable } from "./custom-table";
 
 export function Outcomes() {
-    const outcomes = data.expenses.filter((expense) => expense.amount < 0);
-    const outcomeChartData = {};
-    const tableContent =[];
-
-    outcomes.forEach((outcome) => {
-        tableContent.push([outcome.amount, outcome.created_at, outcome.category, outcome.id]);
-    })
-
-    const tableData = {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [outcomeChartData, setOutcomeChartData] = useState({});
+    const [tableData, setTableData] = useState({
         headers: ['amount', 'date', 'category', 'action'],
-        content: tableContent
+        content: []
+    });
+
+    useEffect(() => {
+        setLoading(true);
+        fetch("/data.json")
+            .then((x) => x.json())
+            .then((data) => {
+                setData(data);
+                setLoading(false);
+            });
+    }, []);
+
+    useEffect(() => {
+        if (data) {
+            const outcomes = data.expenses.filter((expense) => expense.amount < 0);
+
+            // Process chart data
+            const chartData = {};
+            outcomes.forEach((outcome) => {
+                const date = outcome.created_at.split(" ")[0];
+                if (!chartData[date]) {
+                    chartData[date] = 0;
+                }
+                chartData[date] += outcome.amount;
+            });
+            setOutcomeChartData(chartData);
+
+            // Process table data
+            setTableData({
+                headers: ['amount', 'date', 'category', 'action'],
+                content: outcomes.map((outcome) => [outcome.amount, outcome.created_at, outcome.category, outcome.id])
+            });
+        }
+    }, [data]);
+
+    if (loading) {
+        return <p>Loading...</p>;
     }
 
-    outcomes.forEach((outcome) => {
-        const date = outcome.created_at.split(" ")[0];
-        if (!outcomeChartData[date]) {
-            outcomeChartData[date] = 0;
-        }
-        outcomeChartData[date] += outcome.amount;
-    })
-
     return (
-        <div>
+        <div style={{padding: '2rem'}}>
             <h1>Outcomes</h1>
-            <LineChart chartData={outcomeChartData} />
-            <CustomTable tableData={tableData} />
+            {outcomeChartData && tableData && (
+                <>
+                    <LineChart chartData={outcomeChartData} />
+                    <CustomTable tableData={tableData} />
+                </>
+            )}
         </div>
     );
 }
