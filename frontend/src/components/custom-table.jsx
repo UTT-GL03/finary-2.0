@@ -15,7 +15,7 @@ export function CustomTable({ tableData }) {
             <tr id={id}>
               
               {content.map((value, key) => (
-                <td id={key}>{key !== content.length - 1 ? value : <a href={`/#/${value}`}>View</a>}</td>
+                <td id={key}>{key !== content.length - 1 ? value : <a href={`/detail/${value}`}>View</a>}</td>
               ))}
               
               

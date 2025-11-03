@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Link } from "react-router";
+import {  Routes, Route, Link, BrowserRouter } from "react-router";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Dashboard } from "./components/dashboard";
@@ -9,7 +9,7 @@ import "@picocss/pico/css/pico.css";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <header>
         <Link to="/">
           <h1>
@@ -20,11 +20,11 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path=":id" element={<Detail />} />
-        <Route path="incomes" element={<Incomes />} />
-        <Route path="outcomes" element={<Outcomes />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/incomes" element={<Incomes />} />
+        <Route path="/outcomes" element={<Outcomes />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
