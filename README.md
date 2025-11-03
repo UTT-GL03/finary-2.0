@@ -203,7 +203,8 @@ Celle-ci est caracterisée par:
 
 **Page d’accueil**
 
-![Screenshot 2025-11-03 at 15.07.40.png](attachment:00c2e9aa-9b9f-4ed2-88c1-e293226bc6e7:Screenshot_2025-11-03_at_15.07.40.png)
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 07 40" src="https://github.com/user-attachments/assets/ba0afaf7-2a04-4cf3-9d66-71d5896b317b" />
+
 
 **Figure 3: Page d’accueil**
 
@@ -226,17 +227,19 @@ Pour comprendre de manière visuelle les étapes du scénario, nous avons dans l
 
 Dans un second temps, nous avons les “incomes” et “outcomes”.
 
-![Screenshot 2025-11-03 at 15.07.51.png](attachment:bd9925cb-7817-4585-a7f4-c507b97bec27:Screenshot_2025-11-03_at_15.07.51.png)
+
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 07 51" src="https://github.com/user-attachments/assets/1214987e-65b9-4c80-b35f-adca00681cc3" />
 
 **Figure 4: Income et outcome**
 
 On peut ensuite cliquer sur “view all”.
 
-![Screenshot 2025-11-03 at 15.08.19.png](attachment:f146d30f-0b41-4ac6-beec-ff41ab108a1d:Screenshot_2025-11-03_at_15.08.19.png)
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 08 19" src="https://github.com/user-attachments/assets/204a4746-9e6e-4936-8391-eddcb829a0ac" />
+
 
 Puis on peut consulter les détails précis d’une action:
+<img width="1624" height="1056" alt="Screenshot 2025-11-03 at 15 08 39" src="https://github.com/user-attachments/assets/dae714b1-a5e2-46ae-9b58-71444ad8cd00" />
 
-![Screenshot 2025-11-03 at 15.08.39.png](attachment:ef379685-0c0e-4ce6-98f1-5c416d10bd70:Screenshot_2025-11-03_at_15.08.39.png)
 
 Dans cette première version, nous avons essayé d’être les plus minimalistes possible en terme d’interface, mais nous étions néanmoins obligé d’utiliser des librairies pour afficher les données sous forme de graphiques et tableaux.
 
