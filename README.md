@@ -60,12 +60,12 @@ Nous verrons donc avec 2 cas d’utilisation:
 - La consultation des informations
 - L’investissement de son patrimoine (moins quotidien en fonction du type d’utilisateur)
 
-### **Scénario : "Consultation de ses comptes et ses investissements"**
+### **Scénario : "Consultation de ses comptes"**
 
 1. Il consulte la courbe sur la page d’accueil.
-2. Il change le filtre d’affichage temporel.
-3. Il consulte détail d’un compte
-4. Il retourne sur la page d’accueil
+3. Il consulte le détail d’un compte (dépenses / revenus)
+4. Il consulte le détail d'une donnée
+5. Il retourne sur la page d’accueil
 
 ### **Scénario : Consultation des informations de la communauté**
 
@@ -210,12 +210,12 @@ Celle-ci est caracterisée par:
 
 Pour rappel notre scénario principal était le suivant:
 
-**Scénario : "Consultation de ses comptes et ses investissements"**
+**Scénario : "Consultation de ses comptes"**
 
 1. Il consulte la courbe sur la page d’accueil.
-2. Il change le filtre d’affichage temporel.
-3. Il consulte détail d’un compte
-4. Il retourne sur la page d’accueil
+3. Il consulte le détail d’un compte (dépenses / revenus)
+4. Il consulte le détail d'une donnée
+5. Il retourne sur la page d’accueil
 
 Comme nous nous concentrons plus sur la gestion du patrimoine et non l’investissement, nos pages et le types de ressources restent similaires.
 
@@ -268,6 +268,51 @@ Après ces modifications, nous avons pu facilement mesuré les données demandé
 | http://localhost:4173/bis | A | 97/100 | 15.90 | 1.06 | 4 | 1.205 | 5 |
 
 Nous précisions que ces mesures concernent les chargement des pages avec des données **statiques.** Ces résultats sont particulièrement bon car nous n'avons que très peu de texte affiché à l'écran.
+
+### **Mesures de la consommation énergétique lors du passage à l'échelle**
+
+---
+
+Nous avons réalisé l’automatisation des tests, qui créent un rapport html à chaque fois que nous pushons du code sur notre repository.
+
+Nous pouvons maintenant simuler des données des mesures qui collent beaucoup plus à la réalité.
+
+Comme précisé précedemment, nous avons peu de données textuelle à afficher, ce qui explique pourquoi nous obtenons de très bon résultats. De plus nous avons “peu” de données. En effet, pour chaque utilisateur, nous avons entre 5 et 10 dépenses referencées par utilisateurs. Nous allons donc augmenter par 10 le nombre de dépenses par utilisateurs, puisque ce sont ces données qui sont vouées à s’accumuler au cours du temps. Avec ce nouveau mutiplicateur, chaque utlilisateur aura entre 50 et 100 données.
+
+**Évolution de l'EcoIndex lors du passage à l'échelle**
+
+Voici un tableau qui représente le passage à l’échelle, permettant de comparer les données entre 5 - 10 données par utilsateurs, à 50 - 100.
+
+| **Page** | **Ecoindex** | **GES (gCO2e)** | **Taille du DOM** | **Nb de requêtes** | **Taille de la page (Ko)** |
+| --- | --- | --- | --- | --- | --- |
+| http://localhost:4173/ | ~~93 A 🟩~~
+83 A 🟩 | ~~1.14~~
+1.34 | ~~57~~
+87 | ~~4~~
+6 | ~~161.120~~
+681.713 |
+| http://localhost:4173/incomes | ~~85 A 🟩~~
+47 D 🟨 | ~~1.30~~
+2.06 | ~~300~~
+2943 | ~~4~~
+6 | ~~1.205~~
+10 819.901 |
+| http://localhost:4173/9 | ~~97 A 🟩~~
+87 A 🟩 | ~~1.06~~
+1.26 | ~~5~~
+20 | ~~4~~
+5 | ~~1.205~~
+679.973 |
+| http://localhost:4173/bis | ~~97 A 🟩~~
+87 A 🟩 | ~~1.06~~
+1.26 | ~~5~~
+87 | ~~4~~
+1 | ~~1.205~~
+144.781 |
+
+**Tab.6**: Effet du passage à l'échelle sur l'impact du scénario "**Consultation de ses comptes**" dans le prototype v1.0.1.
+
+Les données sont cohérentes, nous perdons en efficacité. La page qui se dégrade le plus est la page “income”, ce qui est logique puisque c’est celle dans laquelle nous affichons toutes les données textuelles des transactions de l’utillisateur dans un tableau. Pour pallier à ce problème, nous pourrons charger qu’un nombre restreint de données au début du chargement, puis ajouter un bouton “voir plus” pour charger des données plus viellles.
 
 Pour simuler le fetch des données, nous avons utilisé la librarie fetch, et modifié l’emplacement de notre fichier “data.json” dans le dossier public.
 
