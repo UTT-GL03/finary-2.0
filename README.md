@@ -283,32 +283,13 @@ Comme précisé précedemment, nous avons peu de données textuelle à afficher,
 
 Voici un tableau qui représente le passage à l’échelle, permettant de comparer les données entre 5 - 10 données par utilsateurs, à 50 - 100.
 
-| **Page** | **Ecoindex** | **GES (gCO2e)** | **Taille du DOM** | **Nb de requêtes** | **Taille de la page (Ko)** |
-| --- | --- | --- | --- | --- | --- |
-| http://localhost:4173/ | ~~93 A 🟩~~
-83 A 🟩 | ~~1.14~~
-1.34 | ~~57~~
-87 | ~~4~~
-6 | ~~161.120~~
-681.713 |
-| http://localhost:4173/incomes | ~~85 A 🟩~~
-47 D 🟨 | ~~1.30~~
-2.06 | ~~300~~
-2943 | ~~4~~
-6 | ~~1.205~~
-10 819.901 |
-| http://localhost:4173/9 | ~~97 A 🟩~~
-87 A 🟩 | ~~1.06~~
-1.26 | ~~5~~
-20 | ~~4~~
-5 | ~~1.205~~
-679.973 |
-| http://localhost:4173/bis | ~~97 A 🟩~~
-87 A 🟩 | ~~1.06~~
-1.26 | ~~5~~
-87 | ~~4~~
-1 | ~~1.205~~
-144.781 |
+| **Page**                     | **Ecoindex** | **GES (gCO2e)** | **Taille du DOM** | **Nb de requêtes** | **Taille de la page (Ko)** |
+|------------------------------|--------------|-----------------|--------------------|--------------------|---------------------------|
+| http://localhost:4173/       | 83 A 🟩       | 1.34            | 87                 | 6                  | 681.713                   |
+| http://localhost:4173/incomes| 47 D 🟨       | 2.06            | 2943               | 6                  | 10 819.901                |
+| http://localhost:4173/9      | 87 A 🟩       | 1.26            | 20                 | 5                  | 679.973                   |
+| http://localhost:4173/bis    | 87 A 🟩       | 1.26            | 87                 | 1                  | 144.781                   |
+
 
 **Tab.6**: Effet du passage à l'échelle sur l'impact du scénario "**Consultation de ses comptes**" dans le prototype v1.0.1.
 
