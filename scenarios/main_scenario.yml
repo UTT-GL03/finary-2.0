@@ -3,11 +3,7 @@
   url: http://localhost/
   waitForSelector: .container
   actions:
-    - name: Select a time filter month
-      type: select
-      element: select
-      value: Jun 2024
-      waitForSelector: canvas
+
     - name: Go to incomes page
       type: click
       element: a[href="/incomes"]
