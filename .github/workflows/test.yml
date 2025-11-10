@@ -21,7 +21,7 @@ jobs:
           npm install
       - name: Generate sample
         run: |
-          mkdir frontend/public
+ 
           npx --yes dummy-json data.hbs > frontend/public/data.json
       - name: Build frontend
         run: |
