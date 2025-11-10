@@ -267,7 +267,7 @@ Après ces modifications, nous avons pu facilement mesuré les données demandé
 | http://localhost:4173/9 | A | 97/100 | 15.90 | 1.06 | 4 | 1.205 | 5 |
 | http://localhost:4173/bis | A | 97/100 | 15.90 | 1.06 | 4 | 1.205 | 5 |
 
-Nous précisions que ces mesures concernent les chargement des pages avec des données **statiques.**
+Nous précisions que ces mesures concernent les chargement des pages avec des données **statiques.** Ces résultats sont particulièrement bon car nous n'avons que très peu de texte affiché à l'écran.
 
 Pour simuler le fetch des données, nous avons utilisé la librarie fetch, et modifié l’emplacement de notre fichier “data.json” dans le dossier public.
 
