@@ -1,0 +1,28 @@
+# To be used with GreenIT Analysis CLI
+- name: Test Finary Dashboard Features
+  url: http://localhost/
+  waitForSelector: .container
+  actions:
+    - name: Change time filter on dashboard
+      type: click
+      element: select
+      waitForSelector: option[value]:not([value="all"])
+    - name: Select first available month filter
+      type: select
+      element: select
+      value: first-available
+    - name: Go to incomes page
+      type: click
+      element: a[href="/incomes"]
+      pageChange: true
+      waitForSelector: h1
+    - name: Click first row View link in incomes table
+      type: click
+      element: table tbody tr:first-child td:last-child a
+      pageChange: true
+      waitForSelector: main.container
+    - name: Return to home page
+      type: click
+      element: header a[href="/"]
+      pageChange: true
+      waitForSelector: .container
