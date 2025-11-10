@@ -60,12 +60,12 @@ Nous verrons donc avec 2 cas d’utilisation:
 - La consultation des informations
 - L’investissement de son patrimoine (moins quotidien en fonction du type d’utilisateur)
 
-### **Scénario : "Consultation de ses comptes et ses investissements"**
+### **Scénario : "Consultation de ses comptes"**
 
 1. Il consulte la courbe sur la page d’accueil.
-2. Il change le filtre d’affichage temporel.
-3. Il consulte détail d’un compte
-4. Il retourne sur la page d’accueil
+3. Il consulte le détail d’un compte (dépenses / revenus)
+4. Il consulte le détail d'une donnée
+5. Il retourne sur la page d’accueil
 
 ### **Scénario : Consultation des informations de la communauté**
 
@@ -210,12 +210,12 @@ Celle-ci est caracterisée par:
 
 Pour rappel notre scénario principal était le suivant:
 
-**Scénario : "Consultation de ses comptes et ses investissements"**
+**Scénario : "Consultation de ses comptes"**
 
 1. Il consulte la courbe sur la page d’accueil.
-2. Il change le filtre d’affichage temporel.
-3. Il consulte détail d’un compte
-4. Il retourne sur la page d’accueil
+3. Il consulte le détail d’un compte (dépenses / revenus)
+4. Il consulte le détail d'une donnée
+5. Il retourne sur la page d’accueil
 
 Comme nous nous concentrons plus sur la gestion du patrimoine et non l’investissement, nos pages et le types de ressources restent similaires.
 
