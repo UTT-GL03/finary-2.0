@@ -38,7 +38,7 @@ jobs:
           npm install
           npm link
       - name: Wait for frontend
-        uses: docker://RJ-45-1/wait-for-response:1
+        uses: docker://benel/wait-for-response:1
         with:
           args: http://localhost/ 200 30000 500
       - name: Run GreenIT Analysis CLI
