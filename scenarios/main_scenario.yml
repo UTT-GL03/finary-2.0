@@ -3,14 +3,11 @@
   url: http://localhost/
   waitForSelector: .container
   actions:
-    - name: Change time filter on dashboard
-      type: click
-      element: select
-      waitForSelector: option[value]:not([value="all"])
-    - name: Select first available month filter
+    - name: Select a time filter month
       type: select
       element: select
-      value: first-available
+      value: Jun 2024
+      waitForSelector: canvas
     - name: Go to incomes page
       type: click
       element: a[href="/incomes"]
