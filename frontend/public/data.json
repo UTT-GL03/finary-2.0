@@ -5,711 +5,694 @@
       "user": "Nathan"
     },
     {
+      "user_id": "0",
+      "user": "Joslyn Zobel"
+    },
+    {
       "user_id": "1",
-      "user": "Marcus Smit"
+      "user": "Benito White"
     },
     {
       "user_id": "2",
-      "user": "Lloyd Backer"
+      "user": "Florance Mercer"
     },
     {
       "user_id": "3",
-      "user": "Jenette Hollis"
+      "user": "Raylene Drolet"
     },
     {
       "user_id": "4",
-      "user": "Neida Sprowl"
+      "user": "Aiden Schaefer"
     },
     {
       "user_id": "5",
-      "user": "Jason Bryd"
+      "user": "Kirstie Bourne"
     },
     {
       "user_id": "6",
-      "user": "Myong White"
+      "user": "Erik Caffey"
     },
     {
       "user_id": "7",
-      "user": "Grace Charley"
+      "user": "Heath Paquette"
     },
     {
       "user_id": "8",
-      "user": "Florance Lenihan"
-    },
-    {
-      "user_id": "9",
-      "user": "Haydee Pickering"
+      "user": "Roman Paschall"
     }
   ],
   "expenses": [
     {
       "id": "0",
-      "user_id": "1",
-      "created_at": "2024-04-10 07:36",
+      "user_id": "10",
+      "created_at": "2024-07-20 15:32",
       "amount": 1000,
-      "category": "Health"
+      "category": "Entertainment"
     },
     {
       "id": "1",
-      "user_id": "9",
-      "created_at": "2024-09-21 14:04",
+      "user_id": "6",
+      "created_at": "2024-12-08 09:12",
       "amount": 1000,
       "category": "Housing"
     },
     {
       "id": "2",
-      "user_id": "1",
-      "created_at": "2024-03-05 21:38",
-      "amount": -1000,
-      "category": "Other"
-    },
-    {
-      "id": "3",
-      "user_id": "1",
-      "created_at": "2024-05-05 03:51",
-      "amount": 1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "4",
-      "user_id": "8",
-      "created_at": "2024-04-22 19:37",
-      "amount": 1000,
-      "category": "Entertainment"
-    },
-    {
-      "id": "5",
-      "user_id": "3",
-      "created_at": "2024-03-29 02:30",
-      "amount": 1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "6",
       "user_id": "4",
-      "created_at": "2024-06-05 19:15",
-      "amount": -1000,
-      "category": "Housing"
-    },
-    {
-      "id": "7",
-      "user_id": "7",
-      "created_at": "2024-07-25 01:22",
+      "created_at": "2024-12-10 13:27",
       "amount": 1000,
-      "category": "Entertainment"
-    },
-    {
-      "id": "8",
-      "user_id": "3",
-      "created_at": "2024-09-12 05:40",
-      "amount": -1000,
-      "category": "Transport"
-    },
-    {
-      "id": "9",
-      "user_id": "4",
-      "created_at": "2024-12-16 00:03",
-      "amount": 1000,
-      "category": "Transport"
-    },
-    {
-      "id": "10",
-      "user_id": "10",
-      "created_at": "2024-07-09 03:50",
-      "amount": 1000,
-      "category": "Entertainment"
-    },
-    {
-      "id": "11",
-      "user_id": "10",
-      "created_at": "2024-04-27 14:28",
-      "amount": 1000,
-      "category": "Housing"
-    },
-    {
-      "id": "12",
-      "user_id": "4",
-      "created_at": "2024-06-26 14:57",
-      "amount": 1000,
-      "category": "Other"
-    },
-    {
-      "id": "13",
-      "user_id": "3",
-      "created_at": "2024-05-02 05:07",
-      "amount": -1000,
-      "category": "Housing"
-    },
-    {
-      "id": "14",
-      "user_id": "5",
-      "created_at": "2024-05-07 19:52",
-      "amount": -1000,
       "category": "Education"
     },
     {
-      "id": "15",
+      "id": "3",
       "user_id": "7",
-      "created_at": "2024-12-30 14:11",
-      "amount": -1000,
+      "created_at": "2024-07-30 03:10",
+      "amount": 1000,
+      "category": "Food"
+    },
+    {
+      "id": "4",
+      "user_id": "10",
+      "created_at": "2024-07-31 08:18",
+      "amount": 1000,
       "category": "Utilities"
+    },
+    {
+      "id": "5",
+      "user_id": "9",
+      "created_at": "2024-12-27 06:14",
+      "amount": 1000,
+      "category": "Education"
+    },
+    {
+      "id": "6",
+      "user_id": "10",
+      "created_at": "2024-12-03 15:13",
+      "amount": 1000,
+      "category": "Education"
+    },
+    {
+      "id": "7",
+      "user_id": "10",
+      "created_at": "2024-06-10 06:30",
+      "amount": -1000,
+      "category": "Transport"
+    },
+    {
+      "id": "8",
+      "user_id": "2",
+      "created_at": "2024-01-09 08:39",
+      "amount": 1000,
+      "category": "Utilities"
+    },
+    {
+      "id": "9",
+      "user_id": "7",
+      "created_at": "2024-11-30 22:47",
+      "amount": 1000,
+      "category": "Health"
+    },
+    {
+      "id": "10",
+      "user_id": "7",
+      "created_at": "2024-08-08 16:29",
+      "amount": 1000,
+      "category": "Other"
+    },
+    {
+      "id": "11",
+      "user_id": "4",
+      "created_at": "2024-01-26 21:42",
+      "amount": 1000,
+      "category": "Entertainment"
+    },
+    {
+      "id": "12",
+      "user_id": "1",
+      "created_at": "2024-01-19 01:15",
+      "amount": 1000,
+      "category": "Housing"
+    },
+    {
+      "id": "13",
+      "user_id": "6",
+      "created_at": "2024-07-14 23:54",
+      "amount": 1000,
+      "category": "Food"
+    },
+    {
+      "id": "14",
+      "user_id": "7",
+      "created_at": "2024-07-16 20:06",
+      "amount": 1000,
+      "category": "Food"
+    },
+    {
+      "id": "15",
+      "user_id": "2",
+      "created_at": "2024-08-14 23:47",
+      "amount": -1000,
+      "category": "Health"
     },
     {
       "id": "16",
       "user_id": "9",
-      "created_at": "2024-05-18 04:01",
-      "amount": -1000,
-      "category": "Food"
+      "created_at": "2024-06-21 10:08",
+      "amount": 1000,
+      "category": "Entertainment"
     },
     {
       "id": "17",
-      "user_id": "8",
-      "created_at": "2024-02-10 01:12",
+      "user_id": "2",
+      "created_at": "2024-05-29 13:41",
       "amount": 1000,
-      "category": "Education"
+      "category": "Transport"
     },
     {
       "id": "18",
-      "user_id": "7",
-      "created_at": "2024-10-25 00:48",
-      "amount": 1000,
+      "user_id": "8",
+      "created_at": "2024-09-09 18:42",
+      "amount": -1000,
       "category": "Housing"
     },
     {
       "id": "19",
       "user_id": "6",
-      "created_at": "2024-03-17 19:36",
+      "created_at": "2024-07-31 23:52",
       "amount": 1000,
-      "category": "Utilities"
+      "category": "Transport"
     },
     {
       "id": "20",
-      "user_id": "10",
-      "created_at": "2024-10-21 15:07",
-      "amount": 1000,
-      "category": "Food"
-    },
-    {
-      "id": "21",
-      "user_id": "9",
-      "created_at": "2024-10-11 20:48",
-      "amount": -1000,
-      "category": "Food"
-    },
-    {
-      "id": "22",
-      "user_id": "4",
-      "created_at": "2024-05-05 07:13",
-      "amount": -1000,
-      "category": "Education"
-    },
-    {
-      "id": "23",
-      "user_id": "5",
-      "created_at": "2024-09-04 19:35",
-      "amount": -1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "24",
-      "user_id": "6",
-      "created_at": "2024-01-26 09:07",
+      "user_id": "1",
+      "created_at": "2024-09-24 22:16",
       "amount": -1000,
       "category": "Other"
     },
     {
-      "id": "25",
-      "user_id": "2",
-      "created_at": "2024-10-29 05:52",
+      "id": "21",
+      "user_id": "4",
+      "created_at": "2024-01-10 02:44",
+      "amount": -1000,
+      "category": "Education"
+    },
+    {
+      "id": "22",
+      "user_id": "8",
+      "created_at": "2024-04-29 21:45",
+      "amount": -1000,
+      "category": "Health"
+    },
+    {
+      "id": "23",
+      "user_id": "4",
+      "created_at": "2024-06-16 19:39",
       "amount": 1000,
-      "category": "Utilities"
+      "category": "Food"
+    },
+    {
+      "id": "24",
+      "user_id": "5",
+      "created_at": "2024-07-19 22:26",
+      "amount": -1000,
+      "category": "Entertainment"
+    },
+    {
+      "id": "25",
+      "user_id": "10",
+      "created_at": "2024-09-14 10:12",
+      "amount": 1000,
+      "category": "Entertainment"
     },
     {
       "id": "26",
       "user_id": "7",
-      "created_at": "2024-04-17 19:03",
+      "created_at": "2024-02-07 05:18",
       "amount": 1000,
-      "category": "Education"
+      "category": "Entertainment"
     },
     {
       "id": "27",
       "user_id": "6",
-      "created_at": "2024-10-25 07:51",
+      "created_at": "2024-10-15 09:12",
+      "amount": 1000,
+      "category": "Entertainment"
+    },
+    {
+      "id": "28",
+      "user_id": "2",
+      "created_at": "2024-02-24 19:13",
       "amount": -1000,
       "category": "Education"
     },
     {
-      "id": "28",
-      "user_id": "10",
-      "created_at": "2024-06-16 12:17",
-      "amount": 1000,
-      "category": "Health"
-    },
-    {
       "id": "29",
-      "user_id": "2",
-      "created_at": "2024-02-10 17:19",
-      "amount": -1000,
+      "user_id": "10",
+      "created_at": "2024-08-26 07:45",
+      "amount": 1000,
       "category": "Housing"
     },
     {
       "id": "30",
-      "user_id": "9",
-      "created_at": "2024-09-18 23:21",
+      "user_id": "6",
+      "created_at": "2024-02-19 05:33",
       "amount": -1000,
-      "category": "Utilities"
+      "category": "Health"
     },
     {
       "id": "31",
-      "user_id": "8",
-      "created_at": "2024-05-12 16:22",
+      "user_id": "10",
+      "created_at": "2024-04-03 10:00",
       "amount": 1000,
-      "category": "Transport"
-    },
-    {
-      "id": "32",
-      "user_id": "4",
-      "created_at": "2024-12-05 00:35",
-      "amount": 1000,
-      "category": "Entertainment"
-    },
-    {
-      "id": "33",
-      "user_id": "5",
-      "created_at": "2024-04-15 03:55",
-      "amount": -1000,
       "category": "Housing"
     },
     {
-      "id": "34",
-      "user_id": "3",
-      "created_at": "2024-07-06 05:55",
+      "id": "32",
+      "user_id": "8",
+      "created_at": "2024-11-13 02:11",
       "amount": 1000,
-      "category": "Entertainment"
+      "category": "Food"
+    },
+    {
+      "id": "33",
+      "user_id": "6",
+      "created_at": "2024-04-17 21:52",
+      "amount": 1000,
+      "category": "Education"
+    },
+    {
+      "id": "34",
+      "user_id": "5",
+      "created_at": "2024-09-24 03:40",
+      "amount": -1000,
+      "category": "Housing"
     },
     {
       "id": "35",
       "user_id": "3",
-      "created_at": "2024-09-27 10:48",
+      "created_at": "2024-10-28 16:28",
       "amount": -1000,
-      "category": "Housing"
+      "category": "Food"
     },
     {
       "id": "36",
-      "user_id": "2",
-      "created_at": "2024-12-07 00:57",
-      "amount": 1000,
-      "category": "Health"
+      "user_id": "7",
+      "created_at": "2024-11-12 05:55",
+      "amount": -1000,
+      "category": "Entertainment"
     },
     {
       "id": "37",
-      "user_id": "10",
-      "created_at": "2024-05-09 11:01",
+      "user_id": "4",
+      "created_at": "2024-07-13 07:47",
       "amount": -1000,
-      "category": "Housing"
+      "category": "Utilities"
     },
     {
       "id": "38",
-      "user_id": "5",
-      "created_at": "2024-05-31 03:49",
+      "user_id": "4",
+      "created_at": "2024-09-22 03:34",
       "amount": -1000,
-      "category": "Entertainment"
+      "category": "Utilities"
     },
     {
       "id": "39",
       "user_id": "5",
-      "created_at": "2024-09-02 07:00",
+      "created_at": "2024-07-18 07:25",
       "amount": -1000,
-      "category": "Housing"
-    },
-    {
-      "id": "40",
-      "user_id": "3",
-      "created_at": "2024-11-07 11:25",
-      "amount": 1000,
-      "category": "Entertainment"
-    },
-    {
-      "id": "41",
-      "user_id": "7",
-      "created_at": "2024-07-09 19:11",
-      "amount": 1000,
       "category": "Health"
     },
     {
-      "id": "42",
-      "user_id": "2",
-      "created_at": "2024-10-15 02:07",
-      "amount": -1000,
-      "category": "Transport"
+      "id": "40",
+      "user_id": "4",
+      "created_at": "2024-01-26 20:22",
+      "amount": 1000,
+      "category": "Education"
     },
     {
-      "id": "43",
-      "user_id": "5",
-      "created_at": "2024-04-10 17:51",
-      "amount": 1000,
+      "id": "41",
+      "user_id": "9",
+      "created_at": "2024-10-06 21:01",
+      "amount": -1000,
       "category": "Other"
     },
     {
+      "id": "42",
+      "user_id": "3",
+      "created_at": "2024-06-30 07:46",
+      "amount": -1000,
+      "category": "Entertainment"
+    },
+    {
+      "id": "43",
+      "user_id": "4",
+      "created_at": "2024-04-22 19:26",
+      "amount": -1000,
+      "category": "Food"
+    },
+    {
       "id": "44",
-      "user_id": "1",
-      "created_at": "2024-02-22 05:01",
+      "user_id": "2",
+      "created_at": "2024-02-09 01:17",
       "amount": 1000,
-      "category": "Transport"
+      "category": "Utilities"
     },
     {
       "id": "45",
       "user_id": "2",
-      "created_at": "2024-01-08 00:00",
-      "amount": -1000,
-      "category": "Food"
+      "created_at": "2024-02-14 12:45",
+      "amount": 1000,
+      "category": "Health"
     },
     {
       "id": "46",
-      "user_id": "3",
-      "created_at": "2024-11-26 00:17",
+      "user_id": "4",
+      "created_at": "2024-05-06 03:23",
+      "amount": 1000,
+      "category": "Transport"
+    },
+    {
+      "id": "47",
+      "user_id": "8",
+      "created_at": "2024-08-16 10:26",
+      "amount": -1000,
+      "category": "Education"
+    },
+    {
+      "id": "48",
+      "user_id": "2",
+      "created_at": "2024-03-19 23:25",
+      "amount": 1000,
+      "category": "Transport"
+    },
+    {
+      "id": "49",
+      "user_id": "8",
+      "created_at": "2024-10-10 18:31",
       "amount": -1000,
       "category": "Health"
     },
     {
-      "id": "47",
-      "user_id": "6",
-      "created_at": "2024-01-10 01:20",
-      "amount": -1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "48",
-      "user_id": "9",
-      "created_at": "2024-12-03 14:47",
-      "amount": 1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "49",
-      "user_id": "3",
-      "created_at": "2024-07-04 11:41",
-      "amount": -1000,
-      "category": "Entertainment"
-    },
-    {
       "id": "50",
-      "user_id": "1",
-      "created_at": "2024-06-14 18:07",
-      "amount": 1000,
+      "user_id": "4",
+      "created_at": "2024-11-14 04:07",
+      "amount": -1000,
       "category": "Health"
     },
     {
       "id": "51",
-      "user_id": "1",
-      "created_at": "2024-06-09 01:01",
+      "user_id": "5",
+      "created_at": "2024-01-01 12:58",
       "amount": 1000,
-      "category": "Entertainment"
+      "category": "Utilities"
     },
     {
       "id": "52",
-      "user_id": "4",
-      "created_at": "2024-10-10 20:37",
-      "amount": 1000,
-      "category": "Other"
+      "user_id": "1",
+      "created_at": "2024-01-15 20:08",
+      "amount": -1000,
+      "category": "Utilities"
     },
     {
       "id": "53",
       "user_id": "2",
-      "created_at": "2024-10-03 06:48",
-      "amount": -1000,
-      "category": "Health"
-    },
-    {
-      "id": "54",
-      "user_id": "4",
-      "created_at": "2024-08-09 05:37",
-      "amount": -1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "55",
-      "user_id": "9",
-      "created_at": "2024-05-22 00:08",
-      "amount": 1000,
-      "category": "Food"
-    },
-    {
-      "id": "56",
-      "user_id": "10",
-      "created_at": "2024-03-09 19:32",
-      "amount": 1000,
-      "category": "Transport"
-    },
-    {
-      "id": "57",
-      "user_id": "3",
-      "created_at": "2024-09-13 02:05",
-      "amount": -1000,
-      "category": "Health"
-    },
-    {
-      "id": "58",
-      "user_id": "9",
-      "created_at": "2024-05-04 04:31",
-      "amount": -1000,
-      "category": "Food"
-    },
-    {
-      "id": "59",
-      "user_id": "8",
-      "created_at": "2024-03-31 08:23",
-      "amount": 1000,
-      "category": "Food"
-    },
-    {
-      "id": "60",
-      "user_id": "2",
-      "created_at": "2024-08-16 11:58",
-      "amount": 1000,
-      "category": "Health"
-    },
-    {
-      "id": "61",
-      "user_id": "8",
-      "created_at": "2024-03-26 02:40",
+      "created_at": "2024-07-10 15:54",
       "amount": -1000,
       "category": "Housing"
     },
     {
-      "id": "62",
+      "id": "54",
       "user_id": "8",
-      "created_at": "2024-11-01 11:14",
-      "amount": -1000,
-      "category": "Transport"
-    },
-    {
-      "id": "63",
-      "user_id": "4",
-      "created_at": "2024-01-31 12:40",
-      "amount": -1000,
-      "category": "Health"
-    },
-    {
-      "id": "64",
-      "user_id": "8",
-      "created_at": "2024-04-02 02:31",
-      "amount": 1000,
-      "category": "Education"
-    },
-    {
-      "id": "65",
-      "user_id": "4",
-      "created_at": "2024-02-04 23:39",
-      "amount": -1000,
-      "category": "Transport"
-    },
-    {
-      "id": "66",
-      "user_id": "3",
-      "created_at": "2024-02-13 20:59",
-      "amount": 1000,
-      "category": "Education"
-    },
-    {
-      "id": "67",
-      "user_id": "10",
-      "created_at": "2024-10-27 17:27",
-      "amount": 1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "68",
-      "user_id": "7",
-      "created_at": "2024-04-22 09:33",
-      "amount": -1000,
-      "category": "Food"
-    },
-    {
-      "id": "69",
-      "user_id": "9",
-      "created_at": "2024-11-19 19:37",
+      "created_at": "2024-04-19 02:10",
       "amount": -1000,
       "category": "Other"
     },
     {
-      "id": "70",
-      "user_id": "7",
-      "created_at": "2024-12-22 08:52",
+      "id": "55",
+      "user_id": "1",
+      "created_at": "2024-03-25 16:53",
       "amount": 1000,
       "category": "Utilities"
     },
     {
-      "id": "71",
-      "user_id": "3",
-      "created_at": "2024-05-02 22:04",
+      "id": "56",
+      "user_id": "5",
+      "created_at": "2024-07-11 07:50",
+      "amount": -1000,
+      "category": "Other"
+    },
+    {
+      "id": "57",
+      "user_id": "10",
+      "created_at": "2024-06-01 17:55",
+      "amount": 1000,
+      "category": "Utilities"
+    },
+    {
+      "id": "58",
+      "user_id": "1",
+      "created_at": "2024-06-24 05:29",
+      "amount": -1000,
+      "category": "Housing"
+    },
+    {
+      "id": "59",
+      "user_id": "9",
+      "created_at": "2024-01-09 08:44",
+      "amount": -1000,
+      "category": "Other"
+    },
+    {
+      "id": "60",
+      "user_id": "6",
+      "created_at": "2024-01-01 01:46",
       "amount": -1000,
       "category": "Food"
     },
     {
-      "id": "72",
+      "id": "61",
+      "user_id": "5",
+      "created_at": "2024-11-22 07:56",
+      "amount": -1000,
+      "category": "Food"
+    },
+    {
+      "id": "62",
+      "user_id": "2",
+      "created_at": "2024-11-13 20:54",
+      "amount": 1000,
+      "category": "Health"
+    },
+    {
+      "id": "63",
       "user_id": "9",
-      "created_at": "2024-03-07 23:01",
+      "created_at": "2024-10-05 20:00",
+      "amount": -1000,
+      "category": "Other"
+    },
+    {
+      "id": "64",
+      "user_id": "7",
+      "created_at": "2024-03-05 10:35",
       "amount": -1000,
       "category": "Health"
     },
     {
-      "id": "73",
+      "id": "65",
+      "user_id": "10",
+      "created_at": "2024-03-16 15:12",
+      "amount": 1000,
+      "category": "Food"
+    },
+    {
+      "id": "66",
+      "user_id": "4",
+      "created_at": "2024-12-07 07:54",
+      "amount": 1000,
+      "category": "Transport"
+    },
+    {
+      "id": "67",
+      "user_id": "4",
+      "created_at": "2024-09-18 16:30",
+      "amount": -1000,
+      "category": "Transport"
+    },
+    {
+      "id": "68",
+      "user_id": "7",
+      "created_at": "2024-11-13 03:55",
+      "amount": -1000,
+      "category": "Transport"
+    },
+    {
+      "id": "69",
+      "user_id": "2",
+      "created_at": "2024-10-03 17:17",
+      "amount": 1000,
+      "category": "Other"
+    },
+    {
+      "id": "70",
+      "user_id": "1",
+      "created_at": "2024-05-11 19:12",
+      "amount": -1000,
+      "category": "Entertainment"
+    },
+    {
+      "id": "71",
+      "user_id": "2",
+      "created_at": "2024-11-14 18:16",
+      "amount": 1000,
+      "category": "Entertainment"
+    },
+    {
+      "id": "72",
       "user_id": "3",
-      "created_at": "2024-03-22 20:14",
+      "created_at": "2024-02-04 08:38",
+      "amount": 1000,
+      "category": "Housing"
+    },
+    {
+      "id": "73",
+      "user_id": "4",
+      "created_at": "2024-12-16 01:48",
       "amount": 1000,
       "category": "Transport"
     },
     {
       "id": "74",
-      "user_id": "8",
-      "created_at": "2024-06-30 23:34",
+      "user_id": "4",
+      "created_at": "2024-04-25 05:45",
       "amount": -1000,
-      "category": "Food"
+      "category": "Housing"
     },
     {
       "id": "75",
-      "user_id": "1",
-      "created_at": "2024-01-15 23:05",
+      "user_id": "9",
+      "created_at": "2024-01-25 19:32",
       "amount": -1000,
-      "category": "Food"
+      "category": "Health"
     },
     {
       "id": "76",
       "user_id": "2",
-      "created_at": "2024-04-13 04:24",
+      "created_at": "2024-02-05 08:10",
       "amount": -1000,
-      "category": "Entertainment"
+      "category": "Utilities"
     },
     {
       "id": "77",
-      "user_id": "4",
-      "created_at": "2024-08-17 12:33",
+      "user_id": "3",
+      "created_at": "2024-04-20 23:54",
       "amount": -1000,
       "category": "Other"
     },
     {
       "id": "78",
       "user_id": "10",
-      "created_at": "2024-07-09 19:21",
+      "created_at": "2024-09-10 18:27",
       "amount": 1000,
-      "category": "Transport"
+      "category": "Utilities"
     },
     {
       "id": "79",
-      "user_id": "2",
-      "created_at": "2024-07-20 10:57",
+      "user_id": "4",
+      "created_at": "2024-05-17 06:32",
+      "amount": 1000,
+      "category": "Housing"
+    },
+    {
+      "id": "80",
+      "user_id": "3",
+      "created_at": "2024-12-22 10:38",
+      "amount": 1000,
+      "category": "Utilities"
+    },
+    {
+      "id": "81",
+      "user_id": "7",
+      "created_at": "2024-08-18 19:59",
+      "amount": 1000,
+      "category": "Housing"
+    },
+    {
+      "id": "82",
+      "user_id": "8",
+      "created_at": "2024-11-27 14:18",
       "amount": -1000,
       "category": "Education"
     },
     {
-      "id": "80",
-      "user_id": "4",
-      "created_at": "2024-06-23 12:46",
+      "id": "83",
+      "user_id": "2",
+      "created_at": "2024-05-30 10:50",
       "amount": -1000,
-      "category": "Food"
+      "category": "Entertainment"
     },
     {
-      "id": "81",
-      "user_id": "8",
-      "created_at": "2024-12-26 16:00",
-      "amount": -1000,
-      "category": "Utilities"
+      "id": "84",
+      "user_id": "2",
+      "created_at": "2024-07-04 13:47",
+      "amount": 1000,
+      "category": "Entertainment"
     },
     {
-      "id": "82",
-      "user_id": "7",
-      "created_at": "2024-03-11 11:58",
+      "id": "85",
+      "user_id": "1",
+      "created_at": "2024-10-26 20:49",
       "amount": 1000,
       "category": "Transport"
     },
     {
-      "id": "83",
-      "user_id": "7",
-      "created_at": "2024-05-22 12:32",
-      "amount": 1000,
-      "category": "Housing"
-    },
-    {
-      "id": "84",
-      "user_id": "10",
-      "created_at": "2024-11-27 04:47",
-      "amount": -1000,
-      "category": "Food"
-    },
-    {
-      "id": "85",
-      "user_id": "8",
-      "created_at": "2024-01-08 17:46",
-      "amount": -1000,
-      "category": "Health"
-    },
-    {
       "id": "86",
-      "user_id": "1",
-      "created_at": "2024-11-09 23:39",
-      "amount": -1000,
-      "category": "Food"
+      "user_id": "4",
+      "created_at": "2024-02-06 04:45",
+      "amount": 1000,
+      "category": "Utilities"
     },
     {
       "id": "87",
-      "user_id": "6",
-      "created_at": "2024-10-09 14:15",
+      "user_id": "8",
+      "created_at": "2024-04-19 21:30",
+      "amount": -1000,
+      "category": "Transport"
+    },
+    {
+      "id": "88",
+      "user_id": "2",
+      "created_at": "2024-08-30 06:39",
+      "amount": 1000,
+      "category": "Other"
+    },
+    {
+      "id": "89",
+      "user_id": "1",
+      "created_at": "2024-05-30 09:59",
       "amount": -1000,
       "category": "Housing"
     },
     {
-      "id": "88",
-      "user_id": "10",
-      "created_at": "2024-11-30 10:05",
-      "amount": 1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "89",
-      "user_id": "3",
-      "created_at": "2024-04-02 19:33",
-      "amount": 1000,
-      "category": "Health"
-    },
-    {
       "id": "90",
-      "user_id": "2",
-      "created_at": "2024-12-08 17:02",
-      "amount": 1000,
-      "category": "Education"
+      "user_id": "7",
+      "created_at": "2024-08-29 18:01",
+      "amount": -1000,
+      "category": "Food"
     },
     {
       "id": "91",
-      "user_id": "2",
-      "created_at": "2024-06-20 01:43",
-      "amount": 1000,
-      "category": "Education"
+      "user_id": "8",
+      "created_at": "2024-05-30 12:10",
+      "amount": -1000,
+      "category": "Food"
     },
     {
       "id": "92",
-      "user_id": "1",
-      "created_at": "2024-10-08 17:09",
+      "user_id": "7",
+      "created_at": "2024-05-18 17:03",
       "amount": 1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "93",
-      "user_id": "8",
-      "created_at": "2024-10-11 10:37",
-      "amount": -1000,
-      "category": "Utilities"
-    },
-    {
-      "id": "94",
-      "user_id": "3",
-      "created_at": "2024-08-03 06:12",
-      "amount": 1000,
-      "category": "Education"
+      "category": "Other"
     }
   ]
 }
 
-
-  
-  
