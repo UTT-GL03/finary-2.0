@@ -27,9 +27,20 @@ jobs:
         run: |
           cd frontend
           npm run build
-      - name: Start frontend
-        run: |
-          docker compose up --detach
+      - name: Save frontend build for later
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: frontend/dist
+
+  measure_ecoindex:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Start application
+        uses: ./.github/actions/start
       - name: Install GreenIT Analysis CLI
         run: |
           wget https://github.com/cnumr/GreenIT-Analysis-cli/archive/refs/heads/master.zip
@@ -37,10 +48,7 @@ jobs:
           cd GreenIT-Analysis-cli-master
           npm install
           npm link
-      - name: Wait for frontend
-        uses: docker://benel/wait-for-response:1
-        with:
-          args: http://localhost/ 200 30000 500
+
       - name: Run GreenIT Analysis CLI
         run: |
           greenit analyse --format html --ci scenarios/main_scenario.yml
