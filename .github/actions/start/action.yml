@@ -12,9 +12,15 @@ runs:
         path: frontend/dist
     - name: Start containers
       run: |
+        export COUCHDB_USER="admin"
+        export COUCHDB_PASSWORD="secret"
         docker compose up --detach
       shell: bash
     - name: Wait for frontend
       uses: docker://benel/wait-for-response:1
       with:
         args: http://localhost/ 200 30000 500
+    - name: Wait for backend
+      uses: docker://benel/wait-for-response:1
+      with:
+        args: http://localhost:5984/qvotidie/_all_docs?limit=10 200 30000 500
