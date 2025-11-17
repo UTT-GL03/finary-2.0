@@ -28,8 +28,8 @@ services:
         alias put="curl -X PUT -u '${COUCHDB_USER}:${COUCHDB_PASSWORD}'"
         put backend:5984/_node/nonode@nohost/_config/chttpd/enable_cors --data '"true"'
         put backend:5984/_node/nonode@nohost/_config/cors/origins --data '"*"'
-        put backend:5984/qvotidie
-        put backend:5984/qvotidie/_security --data '{"members":{"roles":[]},"admins":{"roles":["_admin"]}}'
+        put backend:5984/finary
+        put backend:5984/finary/_security --data '{"members":{"roles":[]},"admins":{"roles":["_admin"]}}'
     depends_on:
       backend:
         condition: service_healthy
