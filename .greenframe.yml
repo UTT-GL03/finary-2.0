@@ -1,17 +1,11 @@
 baseURL: http://localhost
 projectName: finary
 scenarios:
-  - name: Test Finary Dashboard Features
-    url: http://localhost/
-   
-    actions:
-      - name: Go to incomes page
-        type: click
-        element: a[href="/incomes"]
-        pageChange: true
-        waitForSelector: h1
-      - name: Click first row View link in incomes table
-        type: click
-        element: table tbody tr:first-child td:last-child a
-        pageChange: true
-        waitForSelector: main.container
+  - name: Consulter les titres
+    path: ./scenarios/consult_index.js
+  - name: Consulter un article
+    path: ./scenarios/consult_expenses.js
+containers:
+  - finary-static_hosting-1
+  - finary-backend-1
+
