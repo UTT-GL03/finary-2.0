@@ -9,7 +9,9 @@ import { TimeFilter } from "./time-filter";
 Chart.register(CategoryScale);
 
 export function Dashboard() {
+  //For the moment we define the userName and Id here.
   const userName = "Nathan";
+  const userId = "10";
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const IncomeChartRef = useRef(null);
@@ -29,24 +31,56 @@ export function Dashboard() {
   const [outcomesCategoriesCount, setOutcomesCategoriesCount] = useState({});
   const [availableMonths, setAvailableMonths] = useState([]);
 
-  //We fake fetch here the data.
+
   useEffect(() => {
-    setLoading(true);
-    // Use the imported data directly instead of fetching
-    fetch("/data.json")
-      .then((x) => x.json())
-      .then((data) => {
-        console.log("data: ", data);
-        setData(data);
-      });
-    setLoading(false);
+    const fetchData = async () => {
+      setLoading(true);
+  
+      try {
+        const response = await fetch(
+          "http://localhost:5984/finary/_all_docs?include_docs=true",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Basic " + btoa("admin:secret"), // your CouchDB credentials
+            },
+          }
+        );
+  
+        const result = await response.json();
+        console.log("Result: ", result);
+  
+        // Extract docs and filter only expenses
+        const rows = result.rows;
+        console.log("Rows: ", rows);
+        const expenses = rows.map(row => row.doc);
+        console.log("Expenses: ", expenses);
+        setData({expenses: expenses}); // <-- this is now the array you want
+  
+      } catch (err) {
+        console.error("Failed to fetch CouchDB:", err);
+      }
+  
+      setLoading(false);
+    };
+  
+    fetchData();
   }, []);
+
+
+  useEffect(() => {
+    console.log("Data: ", data);
+  }, [data]);
+  
+  
 
   // Process data when it's loaded
   useEffect(() => {
     if (!data) return;
 
-    const userId = data.users.find((user) => user.user == userName)?.user_id;
+    //const userId = data.users.find((user) => user.user == userName)?.user_id;
+    
 
     const userExpenses = data.expenses.filter(
       (expense) => expense.user_id === userId
