@@ -1,17 +1,6 @@
 {
-  "users": [
-    {
-      "user_id": "10",
-      "user": "Nathan"
-    },
-    {{#repeat 9}}
-    {
-      "user_id": "{{@index}}",
-      "user": "{{firstName}} {{lastName}}"
-    }
-    {{/repeat}}
-  ],
-  "expenses": [
+ 
+  "docs": [
     {{#repeat min=500 max=1000}}
     {
       "id": "{{@index}}",
@@ -21,5 +10,5 @@
       "category": "{{random 'Food' 'Transport' 'Housing' 'Utilities' 'Entertainment' 'Health' 'Education' 'Other'}}"
     }
     {{/repeat}}
-  ]
+ 
 }
