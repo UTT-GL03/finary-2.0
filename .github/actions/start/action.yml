@@ -23,4 +23,4 @@ runs:
     - name: Wait for backend
       uses: docker://benel/wait-for-response:1
       with:
-        args: http://localhost:5984/qvotidie/_all_docs?limit=10 200 30000 500
+        args: http://localhost:5984/finary/_all_docs?limit=10 200 30000 500
