@@ -6,6 +6,6 @@ scenarios:
   - name: Consulter un article
     path: ./scenarios/consult_expenses.js
 containers:
-  - finary-static_hosting-1
-  - finary-backend-1
+  - finary-20-static_hosting-1
+
 
