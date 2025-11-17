@@ -13,14 +13,40 @@ export function Outcomes() {
     });
 
     useEffect(() => {
-        setLoading(true);
-        fetch("/data.json")
-            .then((x) => x.json())
-            .then((data) => {
-                setData(data);
-                setLoading(false);
-            });
-    }, []);
+        const fetchData = async () => {
+          setLoading(true);
+      
+          try {
+            const response = await fetch(
+              "http://localhost:5984/finary/_all_docs?include_docs=true",
+              {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: "Basic " + btoa("admin:secret"), // your CouchDB credentials
+                },
+              }
+            );
+      
+            const result = await response.json();
+            console.log("Result: ", result);
+      
+            // Extract docs and filter only expenses
+            const rows = result.rows;
+            console.log("Rows: ", rows);
+            const expenses = rows.map(row => row.doc);
+            console.log("Expenses: ", expenses);
+            setData({expenses: expenses}); // <-- this is now the array you want
+      
+          } catch (err) {
+            console.error("Failed to fetch CouchDB:", err);
+          }
+      
+          setLoading(false);
+        };
+      
+        fetchData();
+      }, []);
 
     useEffect(() => {
         if (data) {
