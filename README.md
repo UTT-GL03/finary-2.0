@@ -300,3 +300,54 @@ Pour simuler le fetch des données, nous avons utilisé la librarie fetch, et mo
 
 Nous avons donc du adapter le code, pour réellement pouvoir le rendre dynamique. Cette version est donc la v1.0.1.
 
+
+### Mesure de la consommation énergétique liée à la consultation
+
+Le logiciel **GreenFrame** permet d’estimer, pour les différents composants de l’architecture, la consommation énergétique :
+
+* du **CPU** (à partir du temps de calcul),
+* de la **mémoire vive** (à partir de la taille des données mémorisées),
+* du **disque** (à partir de la taille des données lues et écrites),
+* du **réseau** (à partir de la taille des données reçues et envoyées),
+* pour le **navigateur uniquement**, de l’**écran** (à partir du temps d’exécution du scénario).
+
+#### (a) Consulter la page d’accueil (avec graphiques)
+
+|             | cpu (Wh)  | mem (Wh)  | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| ----------- | --------- | --------- | --------- | ------------ | ----------- | ---------- |
+| Navigateur  | 0.0063    | 0.000060  | 0.0       | 0.0032       | 0.068       | 0.078      |
+| Serveur Web | 0.0000050 | 0.0000029 | 0.0       | 0.0030       | 0.0         | 0.0030     |
+
+**Estimation de l’empreinte carbone :** 35.828 mg eq. CO₂ ± 0,9 % (81.059 mWh)
+
+---
+
+#### (b) Consulter des détails sur les dépenses
+
+|             | cpu (Wh)  | mem (Wh)  | disk (Wh) | network (Wh) | screen (Wh) | total (Wh) |
+| ----------- | --------- | --------- | --------- | ------------ | ----------- | ---------- |
+| Navigateur  | 0.0066    | 0.000059  | 0.0       | 0.0032       | 0.071       | 0.081      |
+| Serveur Web | 0.0000047 | 0.0000030 | 0.0       | 0.0030       | 0.0         | 0.0030     |
+
+**Estimation de l’empreinte carbone :** 36.981 mg eq. CO₂ ± 1,9 % (83.669 mWh)
+
+---
+
+#### Analyse
+
+Par rapport à ce que pouvait laisser penser l’EcoIndex, les résultats indiquent que :
+
+* La **consommation réseau** (serveur et client) et **l’écran du navigateur** sont les principaux contributeurs à la consommation énergétique totale.
+* L’affichage des graphiques et des détails en lui-même a un impact négligeable sur le CPU, la mémoire et le disque.
+* L’impact indirect de l’affichage se manifeste via le **temps d’éclairage de l’écran**, qui reste le facteur dominant côté client.
+
+Ainsi, les trois éléments ayant le plus d’impact sont :
+
+1. **Écran du navigateur**
+2. **Réseau côté client**
+3. **Réseau côté serveur**
+
+Le reste des composants (CPU, mémoire, disque) contribue très peu à la consommation énergétique totale.
+
+**Consommation cumulée pour les deux scénarios :** 72.81 mg eq. CO₂ ± 1,9 % (164.728 mWh)
+
