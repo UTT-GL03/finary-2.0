@@ -7,3 +7,10 @@ services:
       - ./settings/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
       - 80:80
+  backend:
+    image: couchdb:3
+    ports:
+      - 5984:5984
+    environment:
+      - COUCHDB_USER
+      - COUCHDB_PASSWORD
