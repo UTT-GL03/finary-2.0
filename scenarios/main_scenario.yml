@@ -1,4 +1,4 @@
-- name: Load dashboard
+- name: Test Finary Dashboard Features
   url: http://localhost/
   # Wait for dashboard full load:
   # .grid is present only when loading = false
