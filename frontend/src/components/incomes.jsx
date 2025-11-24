@@ -6,12 +6,10 @@ export function Incomes() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-
   const [lastDateIndex, setLastDateIndex] = useState(null);
 
   const [incomeChartData, setIncomeChartData] = useState(null);
   const [tableData, setTableData] = useState(null);
-
 
   useEffect(() => {
     const currentTime = new Date().toISOString();
@@ -75,7 +73,6 @@ export function Incomes() {
     }
   }, [data]);
 
-
   const handleLoadMore = async () => {
     if (!lastDateIndex) return;
     setLoading(true);
@@ -108,9 +105,7 @@ export function Incomes() {
     setLoading(false);
   };
 
-
   if (loading || !incomeChartData || !tableData) {
-
     return <p>Loading...</p>;
   }
 
@@ -118,15 +113,10 @@ export function Incomes() {
     <div style={{ padding: "2rem" }}>
       <h1>Incomes</h1>
 
-      {incomeChartData && tableData && (
-        <>
-          <LineChart chartData={incomeChartData} />
-          <button onClick={handleLoadMore}>Load More</button>
-          <CustomTable tableData={tableData} />
-           <div data-testid="incomes-loaded" style={{display: 'none'}}></div>
-        </>
-      )}
-
+      <LineChart chartData={incomeChartData} />
+      <button onClick={handleLoadMore}>Load More</button>
+      <CustomTable tableData={tableData} />
+      <div data-testid="incomes-loaded" style={{ display: "none" }}></div>
     </div>
   );
 }
