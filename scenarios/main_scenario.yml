@@ -1,23 +1,27 @@
 # To be used with GreenIT Analysis CLI
 - name: Test Finary Dashboard Features
   url: http://localhost/
-  waitForSelector: .container
+  waitForSelector: .grid
   actions:
 
     - name: Go to incomes page
       type: click
       element: a[href="/incomes"]
       pageChange: true
+      waitForSelector: .grid
+
      
       
     - name: Click first row View link in incomes table
       type: click
-      element: table tbody tr:first-child td:last-child a
+      waitForSelector: '[data-testid="incomes-loaded"]'
+      element: 'tbody tr:first-child td:last-child a'
       pageChange: true
-      waitForSelector: [data-testid="incomes-loaded"]
+
 
     - name: Return to home page
       type: click
       element: header a[href="/"]
       pageChange: true
-      waitForSelector: .container
+      waitForSelector: .grid
+

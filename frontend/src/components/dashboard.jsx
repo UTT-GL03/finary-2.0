@@ -3,7 +3,6 @@ import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { useEffect, useRef, useState } from "react";
 
-import { Link } from "react-router";
 import { TimeFilter } from "./time-filter";
 
 Chart.register(CategoryScale);
@@ -383,6 +382,7 @@ export function Dashboard() {
         <p>Loading...</p>
       ) : (
         <>
+        <div className="grid" />
           <article>
             <div
               style={{
