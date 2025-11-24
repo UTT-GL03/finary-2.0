@@ -5,12 +5,13 @@ import { CustomTable } from "./custom-table";
 export function Incomes() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [incomeChartData, setIncomeChartData] = useState({});
+
+
   const [lastDateIndex, setLastDateIndex] = useState(null);
-  const [tableData, setTableData] = useState({
-    headers: ["amount", "date", "category", "action"],
-    content: [],
-  });
+
+  const [incomeChartData, setIncomeChartData] = useState(null);
+  const [tableData, setTableData] = useState(null);
+
 
   useEffect(() => {
     const currentTime = new Date().toISOString();
@@ -74,6 +75,7 @@ export function Incomes() {
     }
   }, [data]);
 
+
   const handleLoadMore = async () => {
     if (!lastDateIndex) return;
     setLoading(true);
@@ -106,20 +108,25 @@ export function Incomes() {
     setLoading(false);
   };
 
-  if (loading) {
+
+  if (loading || !incomeChartData || !tableData) {
+
     return <p>Loading...</p>;
   }
 
   return (
     <div style={{ padding: "2rem" }}>
       <h1>Incomes</h1>
+
       {incomeChartData && tableData && (
         <>
           <LineChart chartData={incomeChartData} />
           <button onClick={handleLoadMore}>Load More</button>
           <CustomTable tableData={tableData} />
+           <div data-testid="incomes-loaded" style={{display: 'none'}}></div>
         </>
       )}
+
     </div>
   );
 }

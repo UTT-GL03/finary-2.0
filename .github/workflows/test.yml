@@ -33,8 +33,27 @@ jobs:
           name: frontend-build
           path: frontend/dist
 
+
+  build_samples:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download sources
+        uses: actions/checkout@v5
+      - name: Generate sample
+        run: |
+          npx --yes dummy-json data.hbs > data.json
+      - name: Save samples for later
+        uses: actions/upload-artifact@v4
+        with:
+          name: samples
+          path: data.json
+
+
+
   measure_ecoindex:
-    needs: build
+    needs: 
+      - build 
+      - build_samples
     runs-on: ubuntu-latest
     steps:
       - name: Download sources
@@ -60,7 +79,9 @@ jobs:
 
           
   measure_energy_consumption:
-    needs: build
+    needs: 
+      - build 
+      - build_samples
     runs-on: ubuntu-latest
     steps:
       - name: Download sources

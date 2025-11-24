@@ -1,21 +1,30 @@
-# To be used with GreenIT Analysis CLI
 - name: Test Finary Dashboard Features
   url: http://localhost/
-  waitForSelector: .container
-  actions:
+  # Wait for dashboard full load:
+  # .grid is present only when loading = false
+  waitForSelector: main.container .grid
 
+  actions:
     - name: Go to incomes page
       type: click
-      element: a[href="/incomes"]
+      # The "View all" link for incomes
+      element: "article:nth-of-type(2) header a[href='/incomes']"
       pageChange: true
-      waitForSelector: h1
-    - name: Click first row View link in incomes table
+      # Wait for incomes page: custom test-id
+      waitForSelector: "[data-testid='incomes-loaded']"
+
+    - name: Open first income detail
       type: click
-      element: table tbody tr:first-child td:last-child a
+      # First row, last td contains the <a> "View"
+      element: "table tbody tr:nth-child(1) td:last-child a"
       pageChange: true
-      waitForSelector: main.container
-    - name: Return to home page
+      # Wait for detail page: <h1>Détail de la dépense:</h1>
+      waitForSelector: "main.container h1"
+
+    - name: Return to dashboard
       type: click
-      element: header a[href="/"]
+      # Click the header logo (Link to="/")
+      element: "header h1"
       pageChange: true
-      waitForSelector: .container
+      # Wait again for dashboard fully loaded
+      waitForSelector: "main.container .grid"

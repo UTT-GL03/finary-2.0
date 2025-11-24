@@ -34,7 +34,7 @@ services:
       backend:
         condition: service_healthy
 
-  updated_samples:
+  index:
     image: curlimages/curl
     entrypoint: ["/bin/sh","-c"]
     volumes:
