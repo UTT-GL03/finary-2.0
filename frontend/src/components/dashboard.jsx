@@ -411,7 +411,7 @@ export function Dashboard() {
               }}
             >
               <h2>Income</h2>
-              <Link to="/incomes">View all</Link>
+              <a href="/incomes">View all</a>
             </header>
             <div className="grid">
               <div>
@@ -442,7 +442,7 @@ export function Dashboard() {
               }}
             >
               <h2>Outcome</h2>
-              <Link to="/outcomes">View all</Link>
+              <a href="/outcomes">View all</a>
             </header>
             <div className="grid">
               <div>
