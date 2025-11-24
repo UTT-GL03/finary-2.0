@@ -36,12 +36,20 @@ services:
 
   index:
     image: curlimages/curl
-    entrypoint: ["/bin/sh","-c"]
+    entrypoint: ["/bin/sh", "-c"]
     volumes:
       - ./frontend/public/data.json:/data.json
-    command:
-      - |
-        curl -X POST http://backend:5984/finary/_bulk_docs -H "Content-Type: application/json" -d @/data.json
+    command: >
+      curl -X POST http://backend:5984/finary/_bulk_docs -H "Content-Type: application/json" -d @/data.json &&
+      curl -X POST "http://backend:5984/finary/_index" \
+        -H "Content-Type: application/json" \
+        -u "admin:secret" \
+        -d '{
+          "index": {
+            "fields": ["created_at"]
+          },
+          "type": "json"
+        }'
     depends_on:
       accessible_backend:
-        condition: service_completed_successfully
+        condition: service_healthy

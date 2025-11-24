@@ -1,25 +1,30 @@
 - name: Test Finary Dashboard Features
   url: http://localhost/
+  # Wait for dashboard full load:
+  # .grid is present only when loading = false
   waitForSelector: main.container .grid
 
   actions:
     - name: Go to incomes page
       type: click
+      # The "View all" link for incomes
       element: "article:nth-of-type(2) header a[href='/incomes']"
       pageChange: true
-
-      # The page now displays <p>Loading...</p> until everything is ready.
-      # So we wait for the full page to be rendered:
+      # Wait for incomes page: custom test-id
       waitForSelector: "[data-testid='incomes-loaded']"
 
     - name: Open first income detail
       type: click
+      # First row, last td contains the <a> "View"
       element: "table tbody tr:nth-child(1) td:last-child a"
       pageChange: true
+      # Wait for detail page: <h1>Détail de la dépense:</h1>
       waitForSelector: "main.container h1"
 
     - name: Return to dashboard
       type: click
+      # Click the header logo (Link to="/")
       element: "header h1"
       pageChange: true
+      # Wait again for dashboard fully loaded
       waitForSelector: "main.container .grid"
