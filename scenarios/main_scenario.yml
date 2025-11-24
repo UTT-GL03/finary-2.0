@@ -8,12 +8,14 @@
       type: click
       element: a[href="/incomes"]
       pageChange: true
-      waitForSelector: h1
+      waitForSelector: [data-testid="incomes-loaded"]
+      
     - name: Click first row View link in incomes table
       type: click
       element: table tbody tr:first-child td:last-child a
       pageChange: true
       waitForSelector: main.container
+
     - name: Return to home page
       type: click
       element: header a[href="/"]
