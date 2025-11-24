@@ -23,10 +23,11 @@ runs:
     - name: Get samples
       uses: actions/download-artifact@v4
       with:
-        name: frontend-build
+        name: samples
+        path: .
     - name: Upload samples
       run: |
-        curl -X POST http://localhost:5984/finary/_bulk_docs -H "Content-Type: application/json" -d @frontend/public/data.json
+        curl -X POST http://localhost:5984/finary/_bulk_docs -H "Content-Type: application/json" -d @data.json
       shell: bash
     - name: Wait for backend
       uses: docker://benel/wait-for-response:1
