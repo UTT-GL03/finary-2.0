@@ -83,6 +83,7 @@ export function Incomes() {
       <>
         <LineChart chartData={incomeChartData} />
         <CustomTable tableData={tableData} />
+        <div data-testid="incomes-loaded" style={{display: 'none'}}></div>
       </>
     )}
     </div>

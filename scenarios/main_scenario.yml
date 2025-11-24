@@ -8,7 +8,8 @@
       type: click
       element: a[href="/incomes"]
       pageChange: true
-      waitForSelector: table
+      waitForSelector: [data-testid="incomes-loaded"]
+      
     - name: Click first row View link in incomes table
       type: click
       element: table tbody tr:first-child td:last-child a
