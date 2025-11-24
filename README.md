@@ -351,3 +351,28 @@ Le reste des composants (CPU, mémoire, disque) contribue très peu à la consom
 
 **Consommation cumulée pour les deux scénarios :** 72.81 mg eq. CO₂ ± 1,9 % (164.728 mWh)
 
+### Effet de l'introduction d'une base de données
+
+Dans l'etape précedante nous avons introduis l'uitlisation de couch db, qui nous permet de rendre ce service beaucoup plus réaliste. 
+Nous avons fait le choix dans un premier temps de ne plus prendre en compte les utilisateurs. En effet, nous avions dans notre fichier data.json, un object users et un objet expense. Daans cet objet l'id de l'utilisateur est renseigné, ansi que sa date d'occurence, le montant qui peut être négatif ou positif.
+Dans notre base de données sur couch db, nous avons désormais uniquement les exepnses, et nous partons du principe que l'utilisateur est celui ayant l'id n°10. Pour rendre encore plus réaliste les données, nous avons également augmenté le nombre d'exepnse, passant de 1000 à 5000. Nous avons donc sur couchdb.
+Nous avons nommé notre base de données "finary".
+Voici un exemple de document dans cette base de données:
+
+{
+  "_id": "64b9ae1d85b558f9ff6f977634004c20",
+  "_rev": "1-2dca812452f0f1b3a9095465a4b006f1",
+  "id": "0",
+  "user_id": "10",
+  "created_at": "2024-07-20 15:32",
+  "amount": 1000,
+  "category": "Entertainment"
+}
+
+Comme nous avions pu le voir précédememnt, la page qui est la plus à même d'être optimiser sont les pages dépenses et revenues, puisque nous affichons dedans toutes les données de l'utilisateur de manière textuelle dans un tableau, contrairement à la page d'accueil qui affiche des graphiques (ce pourquoi nous observons l'utilisation un peu plus elevé du cpu).
+
+### Stratégie de limitation du nombre d'éléments affichés
+
+Nous allons donc travailler sur l'optimisation des pages revenues et dépenses.
+Nous allons suivre les même pratique que tous les sites reconnus, à savoir charger uniquement les données que l'utilisateur a besoin de voir. Il faudra donc faire des requêtes spécifiques en utilisant mango, pour fetch un maximum de 30 dépenses (limite arbitraire) lors du premier chargement. Un bouton "voir plus" sera intégré et permettera de charger 30 élements en plus. 
+
