@@ -6,44 +6,47 @@ import { CustomTable } from "./custom-table";
 export function Outcomes() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    const [lastDateIndex, setLastDateIndex] = useState(null);
+
     const [outcomeChartData, setOutcomeChartData] = useState(null);
     const [tableData, setTableData] = useState(null);
 
+
+
     useEffect(() => {
-        const fetchData = async () => {
-          setLoading(true);
-      
-          try {
-            const response = await fetch(
-              "http://localhost:5984/finary/_all_docs?include_docs=true",
-              {
-                method: "GET",
-                headers: {
-                  "Content-Type": "application/json",
-                  Authorization: "Basic " + btoa("admin:secret"), // your CouchDB credentials
-                },
-              }
-            );
-      
-            const result = await response.json();
-            console.log("Result: ", result);
-      
-            // Extract docs and filter only expenses
-            const rows = result.rows;
-            console.log("Rows: ", rows);
-            const expenses = rows.map(row => row.doc);
-            console.log("Expenses: ", expenses);
-            setData({expenses: expenses}); // <-- this is now the array you want
-      
-          } catch (err) {
-            console.error("Failed to fetch CouchDB:", err);
-          }
-      
-          setLoading(false);
-        };
-      
-        fetchData();
-      }, []);
+      const currentTime = new Date().toISOString();
+      const fetchData = async () => {
+        setLoading(true);
+        try {
+          const query = {
+            selector: {
+              _id: { $gt: null },
+              user_id: "10",
+              created_at: { $lt: currentTime },
+            },
+            sort: [{ created_at: "desc" }],
+            limit: 30,
+          };
+          const response = await fetch("http://localhost:5984/finary/_find", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Basic " + btoa("admin:secret"),
+            },
+            body: JSON.stringify(query),
+          });
+          const result = await response.json();
+          const docs = result.docs;
+          setLastDateIndex(docs[docs.length - 1].created_at);
+          setData({ expenses: docs });
+        } catch (err) {
+          console.error("Failed to fetch CouchDB:", err);
+        }
+        setLoading(false);
+      };
+      fetchData();
+    }, []);
 
     useEffect(() => {
         if (data) {
@@ -51,7 +54,8 @@ export function Outcomes() {
 
             // Process chart data
             const chartData = {};
-            outcomes.forEach((outcome) => {
+            const reversedOutcomes = [...outcomes].reverse();
+            reversedOutcomes.forEach((outcome) => {
                 const date = outcome.created_at.split(" ")[0];
                 if (!chartData[date]) {
                     chartData[date] = 0;
@@ -68,15 +72,57 @@ export function Outcomes() {
         }
     }, [data]);
 
+
+    const handleLoadMore = async () => {
+      if (!lastDateIndex) return;
+      setLoading(true);
+      try {
+        const query = {
+          selector: {
+            _id: { $gt: null },
+            user_id: "10",
+            created_at: { $lt: lastDateIndex },
+          },
+          sort: [{ created_at: "desc" }],
+          limit: 30,
+        };
+        const response = await fetch("http://localhost:5984/finary/_find", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa("admin:secret"),
+          },
+          body: JSON.stringify(query),
+        });
+        const result = await response.json();
+        const docs = result.docs;
+        setLastDateIndex(docs[docs.length - 1].created_at);
+        // Merge new data with existing data
+        setData({ expenses: [...data.expenses, ...docs] });
+      } catch (err) {
+        console.error("Failed to fetch more data:", err);
+      }
+      setLoading(false);
+    };
+
+
     if (loading || !outcomeChartData || !tableData) {
+
         return <p>Loading...</p>;
     }
 
     return (
         <div style={{padding: '2rem'}}>
             <h1>Outcomes</h1>
-            <LineChart chartData={outcomeChartData} />
-            <CustomTable tableData={tableData} />
+
+            {outcomeChartData && tableData && (
+                <>
+                    <LineChart chartData={outcomeChartData} />
+                    <button onClick={handleLoadMore}>Load More</button>
+                    <CustomTable tableData={tableData} />
+                </>
+            )}
+
         </div>
     );
 }
