@@ -6,11 +6,8 @@ import { CustomTable } from "./custom-table";
 export function Outcomes() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [outcomeChartData, setOutcomeChartData] = useState({});
-    const [tableData, setTableData] = useState({
-        headers: ['amount', 'date', 'category', 'action'],
-        content: []
-    });
+    const [outcomeChartData, setOutcomeChartData] = useState(null);
+    const [tableData, setTableData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -71,19 +68,15 @@ export function Outcomes() {
         }
     }, [data]);
 
-    if (loading) {
+    if (loading || !outcomeChartData || !tableData) {
         return <p>Loading...</p>;
     }
 
     return (
         <div style={{padding: '2rem'}}>
             <h1>Outcomes</h1>
-            {outcomeChartData && tableData && (
-                <>
-                    <LineChart chartData={outcomeChartData} />
-                    <CustomTable tableData={tableData} />
-                </>
-            )}
+            <LineChart chartData={outcomeChartData} />
+            <CustomTable tableData={tableData} />
         </div>
     );
 }

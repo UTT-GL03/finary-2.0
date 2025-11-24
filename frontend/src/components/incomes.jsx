@@ -7,11 +7,8 @@ export function Incomes() {
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [incomeChartData, setIncomeChartData] = useState({});
-  const [tableData, setTableData] = useState({
-    headers: ['amount', 'date', 'category', 'action'],
-    content: []
-  });
+  const [incomeChartData, setIncomeChartData] = useState(null);
+  const [tableData, setTableData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,19 +70,15 @@ export function Incomes() {
     }
   }, [data]);
 
-  if (loading) {
+  if (loading || !incomeChartData || !tableData) {
     return <p>Loading...</p>;
   }
   return (
     <div style={{padding: '2rem'}}>
       <h1>Incomes</h1>
-    {incomeChartData && tableData && (
-      <>
-        <LineChart chartData={incomeChartData} />
-        <CustomTable tableData={tableData} />
-        <div data-testid="incomes-loaded" style={{display: 'none'}}></div>
-      </>
-    )}
+      <LineChart chartData={incomeChartData} />
+      <CustomTable tableData={tableData} />
+      <div data-testid="incomes-loaded" style={{display: 'none'}}></div>
     </div>
   );
 }
