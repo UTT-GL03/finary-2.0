@@ -421,3 +421,8 @@ Pour implémenter cette pagination efficace, nous utilisons une approche basée 
 
 Cette approche garantit que nous chargeons toujours les données dans l'ordre chronologique inverse (du plus récent au plus ancien) sans doublons, tout en minimisant la charge initiale sur le navigateur et le réseau.
 
+<img width="1624" height="1060" alt="Screenshot 2025-12-08 at 14 15 41" src="https://github.com/user-attachments/assets/51683948-e430-46b4-a1ff-e7bdeabf51d4" />
+
+
+
+
