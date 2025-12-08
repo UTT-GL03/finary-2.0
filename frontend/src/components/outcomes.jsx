@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { LineChart } from "./line-chart";
 import { CustomTable } from "./custom-table";
 import { AddMoney } from "./add-money";
+import { PotentialEconomy } from "./potential-economy";
 
 export function Outcomes() {
   const [data, setData] = useState(null);
@@ -124,6 +125,7 @@ export function Outcomes() {
       {outcomeChartData && tableData && (
         <>
           <LineChart chartData={outcomeChartData} />
+          <PotentialEconomy expenses={data.expenses.filter((expense) => expense.amount < 0)} />
           <CustomTable tableData={tableData} />
           <button onClick={handleLoadMore}>Load More</button>
         </>
