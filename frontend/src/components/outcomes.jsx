@@ -4,9 +4,11 @@ import { LineChart } from "./line-chart";
 import { CustomTable } from "./custom-table";
 import { AddMoney } from "./add-money";
 import { PotentialEconomy } from "./potential-economy";
+import { ExpenseFilter } from "./expense-filter";
 
 export function Outcomes() {
   const [data, setData] = useState(null);
+  const [filteredData, setFilteredData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const [lastDateIndex, setLastDateIndex] = useState(null);
@@ -53,8 +55,9 @@ export function Outcomes() {
   }, []);
 
   useEffect(() => {
-    if (data) {
-      const outcomes = data.expenses.filter((expense) => expense.amount < 0);
+    const dataToProcess = filteredData || data;
+    if (dataToProcess) {
+      const outcomes = dataToProcess.expenses.filter((expense) => expense.amount < 0);
 
       // Process chart data
       const chartData = {};
@@ -74,8 +77,12 @@ export function Outcomes() {
         content: outcomes.map((outcome) => [outcome.amount, outcome.created_at, outcome.category, outcome.id])
       });
     }
-  }, [data]);
+  }, [data, filteredData]);
 
+
+  const handleFilterChange = (filteredExpenses) => {
+    setFilteredData({ expenses: filteredExpenses });
+  };
 
   const handleLoadMore = async () => {
     if (!lastDateIndex) return;
@@ -126,6 +133,7 @@ export function Outcomes() {
         <>
           <LineChart chartData={outcomeChartData} />
           <PotentialEconomy expenses={data.expenses.filter((expense) => expense.amount < 0)} />
+          <ExpenseFilter data={data} onFilterChange={handleFilterChange} />
           <CustomTable tableData={tableData} />
           <button onClick={handleLoadMore}>Load More</button>
         </>
