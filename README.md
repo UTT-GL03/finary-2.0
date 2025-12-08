@@ -428,7 +428,7 @@ Cette approche garantit que nous chargeons toujours les données dans l'ordre ch
 
 
 ##TO DO 
-- [ ] Pouvoir rajouter des dépenses
-- [ ] Pouvoir rajouter des revenus
+- [x] Pouvoir rajouter des dépenses
+- [x] Pouvoir rajouter des revenus
 - [ ] Filtrer par catégorie
 - [ ] Faire un algo qui identifie les doublons et potentiels économies
