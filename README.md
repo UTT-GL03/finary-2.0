@@ -374,5 +374,51 @@ Comme nous avions pu le voir précédememnt, la page qui est la plus à même d'
 ### Stratégie de limitation du nombre d'éléments affichés
 
 Nous allons donc travailler sur l'optimisation des pages revenues et dépenses.
-Nous allons suivre les même pratique que tous les sites reconnus, à savoir charger uniquement les données que l'utilisateur a besoin de voir. Il faudra donc faire des requêtes spécifiques en utilisant mango, pour fetch un maximum de 30 dépenses (limite arbitraire) lors du premier chargement. Un bouton "voir plus" sera intégré et permettera de charger 30 élements en plus. 
+Nous allons suivre les même pratique que tous les sites reconnus, à savoir charger uniquement les données que l'utilisateur a besoin de voir. Il faudra donc faire des requêtes spécifiques en utilisant mango, pour fetch un maximum de 30 dépenses (limite arbitraire) lors du premier chargement. Un bouton "voir plus" sera intégré et permettera de charger 30 élements en plus.
+
+#### Résultats après optimisation
+
+Grâce à cette stratégie de pagination, nous ne chargeons plus toutes les données d'un coup mais seulement une partie (30 éléments initialement). L'utilisateur peut ensuite charger davantage de données via le bouton "voir plus" s'il le souhaite. Cela nous permet d'obtenir des gains significatifs en termes d'EcoIndex :
+
+| Étape | EcoIndex | Eau (cl) | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (Ko) |
+|-------|----------|----------|-------------|---------------|----------|------------------------|
+| **Chargement de la page** - http://localhost/ | 74 B | 2.28 | 1.52 | 88 | 7 | 3809.333 |
+| Bonnes pratiques (2 à mettre en oeuvre) | | | | | | |
+| **Go to incomes page** - http://localhost/incomes | 83 A | 2.01 | 1.34 | 113 | 6 | 543.738 |
+| Bonnes pratiques (2 à mettre en oeuvre) | | | | | | |
+| **Open first income detail** - http://localhost/detail/3982 | 88 A | 1.86 | 1.24 | 20 | 6 | 538.748 |
+| Bonnes pratiques (2 à mettre en oeuvre) | | | | | | |
+| **Return to dashboard** - http://localhost/ | 75 B | 2.25 | 1.5 | 88 | 2 | 3270.055 |
+| Bonnes pratiques (1 à mettre en oeuvre) | | | | | | |
+
+On observe notamment une amélioration significative sur la page `/incomes` qui passe d'un score de **47 D** à **83 A**, avec une réduction drastique de la taille du DOM (de 2943 à 113 éléments) et de la taille de la page (de 10 819 Ko à 543 Ko).
+
+#### Logique de pagination temporelle avec `lastDateIndex`
+
+Pour implémenter cette pagination efficace, nous utilisons une approche basée sur l'ordre temporel des transactions. La logique est implémentée dans le composant `incomes.jsx` :
+
+1. **Premier chargement** : Nous récupérons les 30 transactions les plus récentes en triant par date décroissante (`created_at: "desc"`).
+
+2. **Suivi de la dernière date** : La variable `lastDateIndex` stocke la date de la dernière transaction chargée :
+   ```javascript
+   setLastDateIndex(docs[docs.length - 1].created_at);
+   ```
+
+3. **Chargement suivant** : Lorsque l'utilisateur clique sur "Load More", nous effectuons une nouvelle requête qui récupère les 30 transactions suivantes dont la date est **strictement inférieure** à `lastDateIndex` :
+   ```javascript
+   selector: {
+     _id: { $gt: null },
+     user_id: "10",
+     created_at: { $lt: lastDateIndex }  // Récupère les transactions plus anciennes
+   },
+   sort: [{ created_at: "desc" }],
+   limit: 30
+   ```
+
+4. **Fusion des données** : Les nouvelles données sont ajoutées aux données existantes pour maintenir l'historique complet :
+   ```javascript
+   setData({ expenses: [...data.expenses, ...docs] });
+   ```
+
+Cette approche garantit que nous chargeons toujours les données dans l'ordre chronologique inverse (du plus récent au plus ancien) sans doublons, tout en minimisant la charge initiale sur le navigateur et le réseau.
 

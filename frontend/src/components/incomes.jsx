@@ -114,8 +114,8 @@ export function Incomes() {
       <h1>Incomes</h1>
 
       <LineChart chartData={incomeChartData} />
-      <button onClick={handleLoadMore}>Load More</button>
       <CustomTable tableData={tableData} />
+      <button onClick={handleLoadMore}>Load More</button>
       <div data-testid="incomes-loaded" style={{ display: "none" }}></div>
     </div>
   );

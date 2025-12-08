@@ -118,8 +118,8 @@ export function Outcomes() {
             {outcomeChartData && tableData && (
                 <>
                     <LineChart chartData={outcomeChartData} />
-                    <button onClick={handleLoadMore}>Load More</button>
                     <CustomTable tableData={tableData} />
+                    <button onClick={handleLoadMore}>Load More</button>
                 </>
             )}
 

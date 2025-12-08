@@ -38,15 +38,7 @@ services:
     image: curlimages/curl
     entrypoint: ["/bin/sh","-c"]
     volumes:
-      - ./frontend/public/data.json:/data.json
-    command:
-      - |
-        curl -X POST http://backend:5984/finary/_bulk_docs \
-        -H "Content-Type: application/json" \
-        -d @/data.json
-    depends_on:
-      accessible_backend:
-        condition: service_completed_successfully
+      - ./frontend/g
 
   index_created_at:
     image: curlimages/curl
