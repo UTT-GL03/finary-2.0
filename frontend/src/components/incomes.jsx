@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { LineChart } from "./line-chart";
 import { CustomTable } from "./custom-table";
 import { AddMoney } from "./add-money";
+import { ExpenseFilter } from "./expense-filter";
 
 export function Incomes() {
   const [data, setData] = useState(null);
+  const [filteredData, setFilteredData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const [lastDateIndex, setLastDateIndex] = useState(null);
@@ -49,8 +51,9 @@ export function Incomes() {
   }, []);
 
   useEffect(() => {
-    if (data) {
-      const incomes = data.expenses.filter((expense) => expense.amount > 0);
+    const dataToProcess = filteredData || data;
+    if (dataToProcess) {
+      const incomes = dataToProcess.expenses.filter((expense) => expense.amount > 0);
       // Process chart data
       const chartData = {};
       const reversedIncomes = [...incomes].reverse();
@@ -74,7 +77,11 @@ export function Incomes() {
         ]),
       });
     }
-  }, [data]);
+  }, [data, filteredData]);
+
+  const handleFilterChange = (filteredExpenses) => {
+    setFilteredData({ expenses: filteredExpenses });
+  };
 
   const handleLoadMore = async () => {
     if (!lastDateIndex) return;
@@ -119,6 +126,7 @@ export function Incomes() {
         <AddMoney open={dialogOpen} setOpen={setDialogOpen} transactionType="income" />
       </div>
       <LineChart chartData={incomeChartData} />
+      <ExpenseFilter data={data} onFilterChange={handleFilterChange} />
       <CustomTable tableData={tableData} />
       <button onClick={handleLoadMore}>Load More</button>
       <div data-testid="incomes-loaded" style={{ display: "none" }}></div>
