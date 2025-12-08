@@ -380,16 +380,15 @@ Nous allons suivre les même pratique que tous les sites reconnus, à savoir cha
 
 Grâce à cette stratégie de pagination, nous ne chargeons plus toutes les données d'un coup mais seulement une partie (30 éléments initialement). L'utilisateur peut ensuite charger davantage de données via le bouton "voir plus" s'il le souhaite. Cela nous permet d'obtenir des gains significatifs en termes d'EcoIndex :
 
-| Étape | EcoIndex | Eau (cl) | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (Ko) |
-|-------|----------|----------|-------------|---------------|----------|------------------------|
-| **Chargement de la page** - http://localhost/ | 74 B | 2.28 | 1.52 | 88 | 7 | 3809.333 |
-| Bonnes pratiques (2 à mettre en oeuvre) | | | | | | |
-| **Go to incomes page** - http://localhost/incomes | 83 A | 2.01 | 1.34 | 113 | 6 | 543.738 |
-| Bonnes pratiques (2 à mettre en oeuvre) | | | | | | |
-| **Open first income detail** - http://localhost/detail/3982 | 88 A | 1.86 | 1.24 | 20 | 6 | 538.748 |
-| Bonnes pratiques (2 à mettre en oeuvre) | | | | | | |
-| **Return to dashboard** - http://localhost/ | 75 B | 2.25 | 1.5 | 88 | 2 | 3270.055 |
-| Bonnes pratiques (1 à mettre en oeuvre) | | | | | | |
+
+| Étape                                                                                       | EcoIndex | Eau (cl) | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (Ko) |
+| ------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ------------- | -------- | ---------------------- |
+| **Chargement de la page** - [http://localhost/](http://localhost/)                          | 74 B     | 2.28     | 1.52        | 88            | 7        | 3809.333               |
+| **Go to incomes page** - [http://localhost/incomes](http://localhost/incomes)               | 83 A     | 2.01     | 1.34        | 113           | 6        | 543.738                |
+| **Open first income detail** - [http://localhost/detail/3982](http://localhost/detail/3982) | 88 A     | 1.86     | 1.24        | 20            | 6        | 538.748                |
+| **Return to dashboard** - [http://localhost/](http://localhost/)                            | 75 B     | 2.25     | 1.5         | 88            | 2        | 3270.055               |
+
+
 
 On observe notamment une amélioration significative sur la page `/incomes` qui passe d'un score de **47 D** à **83 A**, avec une réduction drastique de la taille du DOM (de 2943 à 113 éléments) et de la taille de la page (de 10 819 Ko à 543 Ko).
 
