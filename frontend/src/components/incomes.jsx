@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { LineChart } from "./line-chart";
 import { CustomTable } from "./custom-table";
+import { AddMoney } from "./add-money";
 
 export function Incomes() {
   const [data, setData] = useState(null);
@@ -10,6 +11,8 @@ export function Incomes() {
 
   const [incomeChartData, setIncomeChartData] = useState(null);
   const [tableData, setTableData] = useState(null);
+
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     const currentTime = new Date().toISOString();
@@ -111,8 +114,10 @@ export function Incomes() {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>Incomes</h1>
-
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <h1>Incomes</h1>
+        <AddMoney open={dialogOpen} setOpen={setDialogOpen} transactionType="income" />
+      </div>
       <LineChart chartData={incomeChartData} />
       <CustomTable tableData={tableData} />
       <button onClick={handleLoadMore}>Load More</button>
