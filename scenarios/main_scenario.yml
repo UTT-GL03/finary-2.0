@@ -28,3 +28,32 @@
       pageChange: true
       # Wait again for dashboard fully loaded
       waitForSelector: "main.container .grid"
+
+    - name: Test manual income addition
+      type: click
+      # Go to incomes page again to test AddMoney feature
+      element: "article:nth-of-type(2) header a[href='/incomes']"
+      pageChange: true
+      waitForSelector: "[data-testid='incomes-loaded']"
+
+    - name: Open add income dialog
+      type: click
+      # Click the button to open AddMoney dialog
+      element: "button[aria-label='Add income'], button:has-text('Add')"
+      # Wait for dialog to appear (assuming it has a form or dialog element)
+      waitForSelector: "dialog[open], [role='dialog']"
+
+    - name: Go to outcomes page
+      type: click
+      # Return to dashboard first
+      element: "header h1"
+      pageChange: true
+      waitForSelector: "main.container .grid"
+
+    - name: View outcomes and potential savings
+      type: click
+      # Click on outcomes "View all" link
+      element: "article:nth-of-type(1) header a[href='/outcomes']"
+      pageChange: true
+      # Wait for PotentialEconomy component to load
+      waitForSelector: "article h3:has-text('Potential Savings')"
