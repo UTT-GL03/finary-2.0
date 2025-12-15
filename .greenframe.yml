@@ -1,9 +1,9 @@
 baseURL: http://localhost
 projectName: finary
 scenarios:
-  - name: Consulter les titres
+  - name: Consulter tableau de bord
     path: ./scenarios/consult_index.js
-  - name: Consulter un article
+  - name: Consulter une dépense
     path: ./scenarios/consult_expenses.js
 containers:
   - finary-20-static_hosting-1
