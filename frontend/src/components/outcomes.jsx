@@ -126,7 +126,7 @@ export function Outcomes() {
     <div style={{ padding: '2rem' }} data-testid="outcomes-loaded">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h1>Outcomes</h1>
-        <AddMoney open={dialogOpen} setOpen={setDialogOpen} transactionType="outcome" data-testid="add-outcome-button" />
+        <AddMoney open={dialogOpen} setOpen={setDialogOpen} transactionType="outcome" />
       </div>
 
       {outcomeChartData && tableData && (

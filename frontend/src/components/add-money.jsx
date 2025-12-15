@@ -36,8 +36,8 @@ export function AddMoney({ open, setOpen, transactionType }) {
     }
     return (
         <>
-            <button onClick={() => setOpen(true)}>+ Add</button>
-            <dialog open={open}>
+            <button onClick={() => setOpen(true)} data-testid="add-money-button">+ Add</button>
+            <dialog open={open} data-testid="add-money-dialog">
                 <article>
                     <h2>Add {transactionType}</h2>
                     <p>
@@ -45,18 +45,18 @@ export function AddMoney({ open, setOpen, transactionType }) {
                     </p>
                     <ul>
                         <label>Amount: </label>
-                        <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                        <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} data-testid="amount-input" />
                         <label>Category: </label>
-                        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+                        <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} data-testid="category-input" />
                         <label>Date: </label>
-                        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+                        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} data-testid="date-input" />
 
                     </ul>
                     <footer>
-                        <button class="secondary" onClick={() => setOpen(false)}>
+                        <button class="secondary" onClick={() => setOpen(false)} data-testid="cancel-button">
                             Cancel
                         </button>
-                        <button onClick={() => handleSubmit()} disabled={loading}>{loading ? "Loading..." : "Confirm"}</button>
+                        <button onClick={() => handleSubmit()} disabled={loading} data-testid="confirm-button">{loading ? "Loading..." : "Confirm"}</button>
                     </footer>
                 </article>
             </dialog>
