@@ -515,11 +515,6 @@ Cette approche garantit que nous chargeons toujours les données dans l'ordre ch
 
 
 
-## TO DO 
-- [x] Pouvoir rajouter des dépenses
-- [x] Pouvoir rajouter des revenus
-- [x] Filtrer par catégorie
-- [x] Faire un algo qui identifie les doublons et potentiels économies
 
 
 ### Fonctionnalité 1 : ajout de dépenses et de revenus
@@ -538,5 +533,90 @@ Cette approche garantit que nous chargeons toujours les données dans l'ordre ch
 
 ### Analyse de l'impact de ces nouvelles fonctionnalitées
 
+#### Mesures de la page Outcomes (dépenses)
+
+Nous avons mesuré deux nouvelles fonctionnalités sur la page des dépenses (outcomes) :
+1. **Ajout manuel de dépenses** : Permet à l'utilisateur d'ajouter une nouvelle dépense via un formulaire
+2. **Dashboard d'économies potentielles** : Affiche les 3 catégories de dépenses les plus fréquentes et calcule les économies possibles
+
+##### ✅ Consulter les dépenses (outcomes) completed
+
+**MEASUREMENTS**
+```
+┌────────────────────────────┬────────────┬────────────┬───────────────┬───────────┬──────────┬─────────────┐
+│ (index)                    │ cpu (s)    │ screen (s) │ totalTime (s) │ mem (B)   │ disk (B) │ network (B) │
+├────────────────────────────┼────────────┼────────────┼───────────────┼───────────┼──────────┼─────────────┤
+│ greenframe-runner          │ '0.458'    │ '17.8'     │ '19.1'        │ '1.50e+8' │ '0.00'   │ '6.07e+5'   │
+│ finary-20-static_hosting-1 │ '0.000255' │ '0.00'     │ '18.7'        │ '5.57e+6' │ '0.00'   │ '5.99e+5'   │
+└────────────────────────────┴────────────┴────────────┴───────────────┴───────────┴──────────┴─────────────┘
+```
+
+**ESTIMATES**
+```
+┌────────────────────────────┬─────────────┬─────────────┬───────────┬──────────────┬─────────────┬────────────┐
+│ (index)                    │ cpu (Wh)    │ mem (Wh)    │ disk (Wh) │ network (Wh) │ screen (Wh) │ total (Wh) │
+├────────────────────────────┼─────────────┼─────────────┼───────────┼──────────────┼─────────────┼────────────┤
+│ greenframe-runner          │ '0.0057'    │ '0.000058'  │ '0.0'     │ '0.0031'     │ '0.069'     │ '0.078'    │
+│ finary-20-static_hosting-1 │ '0.0000045' │ '0.0000030' │ '0.0'     │ '0.0031'     │ '0.0'       │ '0.0031'   │
+└────────────────────────────┴─────────────┴─────────────┴───────────┴──────────────┴─────────────┴────────────┘
+```
+
+**Estimation de l'empreinte carbone :** 35.834 mg eq. CO₂ ± 0.4% (81.072 mWh)
+
+##### Résultats EcoIndex détaillés
+
+| Étape | URL | EcoIndex | Eau (cl) | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (Ko) | Bonnes pratiques |
+|-------|-----|----------|----------|-------------|---------------|----------|------------------------|------------------|
+| Return to dashboard | http://localhost/ | 92 A | 1.74 | 1.16 | 17 | 2 | 0.443 | 1 à mettre en oeuvre |
+| Go to outcomes page | http://localhost/outcomes | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | 2 à mettre en oeuvre |
+| Open add expense dialog | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
+| Fill expense amount | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
+| Fill expense category | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
+| Fill expense date | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
+| Submit expense | - | 80 A | 2.1 | 1.4 | 215 | 7 | 557.67 | - |
+| Scroll to savings dashboard | - | 79 A | 2.13 | 1.42 | 215 | 8 | 558.278 | - |
+
+##### Analyse de l'impact
+
+**Impact minimal de l'ajout manuel de dépenses :**
+
+L'ajout manuel de dépenses n'a **pratiquement aucun impact** sur la consommation énergétique et l'EcoIndex. Cela s'explique par le fait que cette fonctionnalité **envoie des données** au serveur plutôt que d'en charger. Les observations clés sont :
+
+1. **Taille du DOM stable** : Le DOM reste à 215 éléments pendant toute l'interaction avec le formulaire, car nous n'ajoutons que quelques champs de saisie légers (montant, catégorie, date).
+
+2. **Requêtes minimales** : L'ouverture du dialog et le remplissage des champs ne génèrent aucune requête supplémentaire. Seule la soumission du formulaire envoie une requête POST au serveur (+1 requête passant de 6 à 7).
+
+3. **Transfert réseau négligeable** : L'envoi d'une nouvelle dépense ne représente que quelques octets de données JSON (id, montant, catégorie, date, user_id), ce qui n'impacte pas significativement la taille de la page.
+
+4. **EcoIndex constant** : Le score reste à **80 A** tout au long du processus d'ajout, confirmant que cette fonctionnalité est très écoresponsable.
+
+**Impact du dashboard d'économies potentielles :**
+
+Le composant `PotentialEconomy` calcule et affiche les 3 catégories de dépenses les plus fréquentes côté client, sans requête supplémentaire. L'impact est donc minimal :
+
+- **Calcul côté client** : L'algorithme d'identification des catégories fréquentes utilise les données déjà chargées, sans fetch additionnel.
+- **Affichage léger** : Le composant n'affiche que 3 lignes de texte avec les catégories et les montants, ajoutant très peu d'éléments au DOM.
+- **Pas de requête réseau** : Aucune requête supplémentaire n'est nécessaire pour cette fonctionnalité.
+
+**Comparaison avec la page Incomes :**
+
+| Métrique | Page Incomes (après optimisation) | Page Outcomes | Différence |
+|----------|-----------------------------------|---------------|------------|
+| EcoIndex | 83 A | 80 A | -3 points |
+| Taille du DOM | 113 | 215 | +102 éléments |
+| Taille de la page | 543.738 Ko | 557.67 Ko | +13.93 Ko |
+| Requêtes | 6 | 6 | Identique |
+
+La page Outcomes a un score légèrement inférieur (80 A vs 83 A) en raison du dashboard d'économies potentielles qui ajoute des éléments au DOM pour afficher les recommandations. Cependant, cette différence reste minime et le score reste dans la catégorie A.
+
+**Conclusion :**
+
+Les deux nouvelles fonctionnalités (ajout manuel de dépenses et dashboard d'économies) sont **très écoresponsables** car elles :
+- N'ajoutent pas de charge réseau significative
+- Réutilisent les données déjà chargées pour les calculs
+- Maintiennent un excellent EcoIndex (80 A)
+- Suivent le principe de **"write light, read heavy"** : l'envoi de données est beaucoup moins coûteux que le chargement de grandes quantités de données
+
+Cette approche démontre qu'il est possible d'ajouter des fonctionnalités utiles sans dégrader l'impact environnemental de l'application.
 
 
