@@ -5,6 +5,8 @@ scenarios:
     path: ./scenarios/consult_index.js
   - name: Consulter une dépense
     path: ./scenarios/consult_expenses.js
+  - name: Consulter les dépenses (outcomes)
+    path: ./scenarios/consult_outcome.js
 containers:
   - finary-20-static_hosting-1
 

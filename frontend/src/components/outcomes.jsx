@@ -123,16 +123,16 @@ export function Outcomes() {
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: '2rem' }} data-testid="outcomes-loaded">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <h1>Outcomes</h1>
-        <AddMoney open={dialogOpen} setOpen={setDialogOpen} transactionType="outcome" />
+        <AddMoney open={dialogOpen} setOpen={setDialogOpen} transactionType="outcome" data-testid="add-outcome-button" />
       </div>
 
       {outcomeChartData && tableData && (
         <>
           <LineChart chartData={outcomeChartData} />
-          <PotentialEconomy expenses={data.expenses.filter((expense) => expense.amount < 0)} />
+          <PotentialEconomy expenses={data.expenses.filter((expense) => expense.amount < 0)} data-testid="potential-economy" />
           <ExpenseFilter data={data} onFilterChange={handleFilterChange} />
           <CustomTable tableData={tableData} />
           <button onClick={handleLoadMore}>Load More</button>

@@ -28,3 +28,23 @@
       pageChange: true
       # Wait again for dashboard fully loaded
       waitForSelector: "main.container .grid"
+
+    - name: Go to outcomes page
+      type: click
+      # The "View all" link for outcomes
+      element: "article:nth-of-type(3) header a[href='/outcomes']"
+      pageChange: true
+      # Wait for outcomes page to load
+      waitForSelector: "[data-testid='outcomes-loaded']"
+
+    - name: Add expense manually
+      type: click
+      # Click the "Add Money" button to open the dialog
+      element: "button[data-testid='add-outcome-button']"
+      # Wait for the dialog to open
+      waitForSelector: "dialog[open]"
+
+    - name: Scroll to savings dashboard
+      type: scroll
+      # Scroll to the PotentialEconomy component
+      element: "[data-testid='potential-economy']"
