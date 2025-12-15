@@ -515,8 +515,28 @@ Cette approche garantit que nous chargeons toujours les données dans l'ordre ch
 
 
 
-##TO DO 
+## TO DO 
 - [x] Pouvoir rajouter des dépenses
 - [x] Pouvoir rajouter des revenus
-- [ ] Filtrer par catégorie
+- [x] Filtrer par catégorie
 - [x] Faire un algo qui identifie les doublons et potentiels économies
+
+
+### Fonctionnalité 1 : ajout de dépenses et de revenus
+
+- A l'aide d'un bouton add sur la page income et outcome on accède à une fenêtre pour créer une nouvelle donnée
+<img width="1624" height="1060" alt="image" src="https://github.com/user-attachments/assets/3eb2cc0a-8f52-45ae-906e-495d868a798c" />
+
+### Fonctionnalité 2 : Identification de doublon et conseils
+- Une nouvelle rubrique implémenter sur la page outcome permettant de voir les dépenses les plus fréquentes e tles économies possibles
+<img width="1624" height="1060" alt="image" src="https://github.com/user-attachments/assets/577a3bb1-127e-4465-bcbc-9e638679b747" />
+
+### Fonctionnalité 3 : Filtre détaillé (catégorie, montant, mois) pour trier l'affichage des dépenses et revenus
+- Ajout d'un filtre sur la page income et sur la page outcome, permettant de trier la liste en fonction de plusieurs paramètres : catégorie, montant et date (mois)
+<img width="1624" height="1060" alt="image" src="https://github.com/user-attachments/assets/72ac4048-d253-49e1-88bf-d629ce163170" />
+
+
+### Analyse de l'impact de ces nouvelles fonctionnalitées
+
+
+
