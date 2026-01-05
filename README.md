@@ -6,11 +6,11 @@ Finary est un service qui permet d’optimiser ses dépenses et de gérer son pa
 
 Cette application permet à la fois d’identifier les dépenses en doublons, abonnement d’un service non utilisé, ou encore investir son argent, pour faire fructifier son patrimoine, sans frais “injustifiés” par les banques et services traditionnels.
 
-Il y’a moins d’une semaine, Finary ont levé 25 millions, et comptabilisent plus de 600k d’utililsateurs (dont nous faisons partis). Ce type de plateforme innovante nous interesse particulierement, tant sur le volet technologique, que sur les divers impact sociaux et plus largement environnementaux.
+Il y’a moins d’une semaine, Finary ont levé 25 millions, et comptabilisent plus de 600k d’utililsateurs (dont nous faisons partis). Ce type de plateforme innovante nous intéresse particulierement, tant sur le volet technologique, que sur les divers impact sociaux et plus largement environnementaux.
 
 ## **Utilité sociale**
 
-Les services de gestion de patrimoine comptabilise aujourd’hui 4 millions d’utilisateurs en France. De manière plus générale, les services bancaires sont devenus une partie intégrante de notre quotidien.
+Les services de gestion de patrimoine comptabilise aujourd’hui 4 millions d’utilisateurs en France. De manière plus générale, les services bancaires sont devenus partie intégrante de notre quotidien.
 
 L’inflation en France n'a cessé de croitre ces dernières années. D’après l’inserm, +5,9% en 2023, 1,9% en 2024.
 
@@ -26,13 +26,13 @@ A travers ces divers fonctionnalités, ces applications permettent de redonner d
 
 ## **Effets de la numérisation**
 
-Ce type de plateforme se revendique avant tout comme un outil tout en un. En quelques clics, l'utilisateur peut connecter l'ensemble de ses services bancaires, et avoir un apperçu global de ses dépenses. Cette capacité de centralisation permet de supprimer le travail chronophage et manuel de revelés des comptes. 
+Ce type de plateforme se revendique avant tout comme un outil tout en un. En quelques clics, l'utilisateur peut connecter l'ensemble de ses services bancaires, et avoir un aperçu global de ses dépenses. Cette capacité de centralisation permet de supprimer le travail chronophage et manuel de consulter ses comptes.
 D'un point de vue environnemental, ce type de plateforme permet de diminuer le nombre de connexion aux services tiers. Au lieu de se rendre quotidiennement sur 5 applications, Finary permet de visualiser les données souhaitez en un seul click.
 
 Les services bancaires digitaux ont permi de numériser les factures, relevés de comptes, et autre paperasse, ce qui permet une réduction drastique de l'utilisation du papier. En creusant ce point, on peut identifier des avantages environnementaux comme la réduction de l'emprunte carbone de la livraison des lettres.
 
     
-- Effet rebond sur l’utilisation excessive à cause de la facilité d’utilisation.
+- A noter qu'un effet rebond est possible sur l’utilisation excessive à cause de la facilité d’utilisation.
 
   ## Identification des concurrents:
 
@@ -40,7 +40,8 @@ Nous avons identifié plusieurs acteurs qui évoluent dans le même secteur d’
 
 Nous avons dans un premier temps, dressé un tableau pour nous donner une idée des ressources utilisées par nos différents acteurs.
 
-Nous avons utilisé l’outil destiné au développeurs “inspect”, qui nous permet de consulter divers types de données. Les éléments qui nous ont semblé être pertinent sont le nombre de requete, le transfert réseau en MB, et les ressources chargées en MB.
+Sur navigateur (version web), nous avons utilisé l’outil destiné au développeurs “inspect”, qui nous permet de consulter divers types de données. Les éléments qui nous ont semblé être pertinent sont le nombre de requete, le transfert réseau en MB, et les ressources chargées en MB.
+Nous n'avons donc pas évalué les applications mais bien les versions web de ces services.
 
 | Service | URL | Requêtes | Transfert réseau | Ressources chargées |
 | --- | --- | --- | --- | --- |
