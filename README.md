@@ -565,16 +565,16 @@ Nous avons mesuré deux nouvelles fonctionnalités sur la page des dépenses (ou
 
 ##### Résultats EcoIndex détaillés
 
-| Étape | URL | EcoIndex | Eau (cl) | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (Ko) | Bonnes pratiques |
-|-------|-----|----------|----------|-------------|---------------|----------|------------------------|------------------|
-| Return to dashboard | http://localhost/ | 92 A | 1.74 | 1.16 | 17 | 2 | 0.443 | 1 à mettre en oeuvre |
-| Go to outcomes page | http://localhost/outcomes | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | 2 à mettre en oeuvre |
-| Open add expense dialog | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
-| Fill expense amount | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
-| Fill expense category | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
-| Fill expense date | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 | - |
-| Submit expense | - | 80 A | 2.1 | 1.4 | 215 | 7 | 557.67 | - |
-| Scroll to savings dashboard | - | 79 A | 2.13 | 1.42 | 215 | 8 | 558.278 | - |
+| Étape | URL | EcoIndex | Eau (cl) | GES (gCO2e) | Taille du DOM | Requêtes | Taille de la page (Ko) |
+|-------|-----|----------|----------|-------------|---------------|----------|------------------------|
+| Return to dashboard | http://localhost/ | 92 A | 1.74 | 1.16 | 17 | 2 | 0.443 |
+| Go to outcomes page | http://localhost/outcomes | 80 A | 2.1 | 1.4 | 215 | 6 |
+| Open add expense dialog | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 |
+| Fill expense amount | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 |
+| Fill expense category | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 |
+| Fill expense date | - | 80 A | 2.1 | 1.4 | 215 | 6 | 557.67 |
+| Submit expense | - | 80 A | 2.1 | 1.4 | 215 | 7 | 557.67 |
+| Scroll to savings dashboard | - | 79 A | 2.13 | 1.42 | 215 | 8 | 558.278 |
 
 ##### Analyse de l'impact
 
