@@ -36,9 +36,7 @@ Les services bancaires digitaux ont permi de numériser les factures, relevés d
 
   ## Identification des concurrents:
 
-Nous avons identifié plusieurs acteurs qui évoluent dans le même secteur d’activité que Finary.
-
-Nous nous sommes basés sur nos connaissances et sur des sources externes : [https://fr.semrush.com/website/finary.com/competitors/#:~:text=Comparaison des visites mensuelles %3A,.fr et avenuedesinvestisseurs.fr](https://fr.semrush.com/website/finary.com/competitors/#:~:text=Comparaison%20des%20visites%20mensuelles%20%3A,.fr%20et%20avenuedesinvestisseurs.fr).
+Nous avons identifié plusieurs acteurs qui évoluent dans le même secteur d’activité que Finary. Pour cela nous nous sommes basé sur nos connaissances et les autres applications que nous utilisons.
 
 Nous avons dans un premier temps, dressé un tableau pour nous donner une idée des ressources utilisées par nos différents acteurs.
 
