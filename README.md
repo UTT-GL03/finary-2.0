@@ -611,7 +611,7 @@ La page Outcomes a un score légèrement inférieur (80 A vs 83 A) en raison du 
 
 **Conclusion :**
 
-Les deux nouvelles fonctionnalités (ajout manuel de dépenses et dashboard d'économies) sont **très écoresponsables** car elles :
+Les nouvelles fonctionnalités sont **très écoresponsables** car elles :
 - N'ajoutent pas de charge réseau significative
 - Réutilisent les données déjà chargées pour les calculs
 - Maintiennent un excellent EcoIndex (80 A)
