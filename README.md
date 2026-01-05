@@ -240,6 +240,7 @@ Puis on peut consulter les détails précis d’une action:
 
 
 Dans cette première version, nous avons essayé d’être les plus minimalistes possible en terme d’interface, mais nous étions néanmoins obligé d’utiliser des librairies pour afficher les données sous forme de graphiques et tableaux.
+Nous avons choisie d'utiliser la librairie Chart.js car elle est reconnue comme l'une des plus légère pour la visualisation de données.
 
 Maintenant nous pouvons commencer les mesures.
 
@@ -250,7 +251,7 @@ Tout d’abord sur notre page d’accueil:
 | Mode "développement" | 80 A 🟦 | 58 | 29 | 2240 |
 | Mode "pré-production" | 93 A 🟦 | 57 | 4 | 160 |
 
-Au départ, nous avions développé notre web app en utilisant un hasRouter, qui permet de faire du rendu par fragment. 
+Au départ, nous avions développé notre web app en utilisant un hashRouter, qui permet de faire du rendu par fragment. 
 
 Seulement, lorsque nous voulions faire les mesures avec le logiciel ecoIndex App, l’outil ne reconnaissait pas le changement des pages.
 
@@ -292,7 +293,7 @@ Voici un tableau qui représente le passage à l’échelle, permettant de compa
 
 **Tab.6**: Effet du passage à l'échelle sur l'impact du scénario "**Consultation de ses comptes**" dans le prototype v1.0.1.
 
-Les données sont cohérentes, nous perdons en efficacité. La page qui se dégrade le plus est la page “income”, ce qui est logique puisque c’est celle dans laquelle nous affichons toutes les données textuelles des transactions de l’utillisateur dans un tableau. Pour pallier à ce problème, nous pourrons charger qu’un nombre restreint de données au début du chargement, puis ajouter un bouton “voir plus” pour charger des données plus viellles.
+Les données sont cohérentes, nous perdons en efficacité. La page qui se dégrade le plus est la page “income”, ce qui est logique puisque c’est celle dans laquelle nous affichons toutes les données textuelles des transactions de l’utillisateur dans un tableau. Pour pallier à ce problème, nous pourrons charger qu’un nombre restreint de données au début du chargement, puis ajouter un bouton “voir plus” pour charger des données plus vieilles.
 
 Pour simuler le fetch des données, nous avons utilisé la librarie fetch, et modifié l’emplacement de notre fichier “data.json” dans le dossier public.
 
@@ -351,9 +352,9 @@ Le reste des composants (CPU, mémoire, disque) contribue très peu à la consom
 
 ### Effet de l'introduction d'une base de données
 
-Dans l'etape précedante nous avons introduis l'uitlisation de couch db, qui nous permet de rendre ce service beaucoup plus réaliste. 
+Dans l'étape précédente nous avons introduis l'utilisation de couch db, qui nous permet de rendre ce service beaucoup plus réaliste. 
 Nous avons fait le choix dans un premier temps de ne plus prendre en compte les utilisateurs. En effet, nous avions dans notre fichier data.json, un object users et un objet expense. Daans cet objet l'id de l'utilisateur est renseigné, ansi que sa date d'occurence, le montant qui peut être négatif ou positif.
-Dans notre base de données sur couch db, nous avons désormais uniquement les exepnses, et nous partons du principe que l'utilisateur est celui ayant l'id n°10. Pour rendre encore plus réaliste les données, nous avons également augmenté le nombre d'exepnse, passant de 1000 à 5000. Nous avons donc sur couchdb.
+Dans notre base de données sur couch db, nous avons désormais uniquement les expenses, et nous partons du principe que l'utilisateur est celui ayant l'id n°10. Pour rendre encore plus réaliste les données, nous avons également augmenté le nombre d'expense, passant de 1000 à 5000. Nous avons donc sur couchdb.
 Nous avons nommé notre base de données "finary".
 Voici un exemple de document dans cette base de données:
 
@@ -367,12 +368,12 @@ Voici un exemple de document dans cette base de données:
   "category": "Entertainment"
 }
 
-Comme nous avions pu le voir précédememnt, la page qui est la plus à même d'être optimiser sont les pages dépenses et revenues, puisque nous affichons dedans toutes les données de l'utilisateur de manière textuelle dans un tableau, contrairement à la page d'accueil qui affiche des graphiques (ce pourquoi nous observons l'utilisation un peu plus elevé du cpu).
+Comme nous avions pu le voir précédememnt, les pages qui est la plus à même d'être optimisé sont les pages dépenses et revenues, puisque nous affichons dedans toutes les données de l'utilisateur de manière textuelle dans un tableau, contrairement à la page d'accueil qui affiche des graphiques (ce pourquoi nous observons l'utilisation un peu plus elevé du CPU).
 
 ### Stratégie de limitation du nombre d'éléments affichés
 
 Nous allons donc travailler sur l'optimisation des pages revenues et dépenses.
-Nous allons suivre les même pratique que tous les sites reconnus, à savoir charger uniquement les données que l'utilisateur a besoin de voir. Il faudra donc faire des requêtes spécifiques en utilisant mango, pour fetch un maximum de 30 dépenses (limite arbitraire) lors du premier chargement. Un bouton "voir plus" sera intégré et permettera de charger 30 élements en plus.
+Nous allons suivre les même pratique que tous les sites reconnus, à savoir charger uniquement les données que l'utilisateur a besoin de voir. Il faudra donc faire des requêtes spécifiques en utilisant mango, pour fetch un maximum de 30 dépenses (limite arbitraire) lors du premier chargement. Un bouton "voir plus" sera intégré et permettera de charger 30 élements supplémentaires.
 
 #### Résultats après optimisation
 
@@ -489,7 +490,7 @@ Pour implémenter cette pagination efficace, nous utilisons une approche basée 
    setLastDateIndex(docs[docs.length - 1].created_at);
    ```
 
-3. **Chargement suivant** : Lorsque l'utilisateur clique sur "Load More", nous effectuons une nouvelle requête qui récupère les 30 transactions suivantes dont la date est **strictement inférieure** à `lastDateIndex` :
+3. **Chargement suivant** : Lorsque l'utilisateur clique sur "Voir plus", nous effectuons une nouvelle requête qui récupère les 30 transactions suivantes dont la date est **strictement inférieure** à `lastDateIndex` :
    ```javascript
    selector: {
      _id: { $gt: null },
@@ -521,11 +522,11 @@ Cette approche garantit que nous chargeons toujours les données dans l'ordre ch
 <img width="1624" height="1060" alt="image" src="https://github.com/user-attachments/assets/3eb2cc0a-8f52-45ae-906e-495d868a798c" />
 
 ### Fonctionnalité 2 : Identification de doublon et conseils
-- Une nouvelle rubrique implémenter sur la page outcome permettant de voir les dépenses les plus fréquentes e tles économies possibles
+- Une nouvelle rubrique implémenter sur la page outcome permettant de voir les dépenses les plus fréquentes et les économies possibles
 <img width="1624" height="1060" alt="image" src="https://github.com/user-attachments/assets/577a3bb1-127e-4465-bcbc-9e638679b747" />
 
 ### Fonctionnalité 3 : Filtre détaillé (catégorie, montant, mois) pour trier l'affichage des dépenses et revenus
-- Ajout d'un filtre sur la page income et sur la page outcome, permettant de trier la liste en fonction de plusieurs paramètres : catégorie, montant et date (mois)
+- Ajout d'un filtre sur la page income et sur la page outcome, permettant de trier les lignes affichées en fonction de plusieurs paramètres : catégorie, montant et date (mois)
 <img width="1624" height="1060" alt="image" src="https://github.com/user-attachments/assets/72ac4048-d253-49e1-88bf-d629ce163170" />
 
 
@@ -533,11 +534,11 @@ Cette approche garantit que nous chargeons toujours les données dans l'ordre ch
 
 #### Mesures de la page Outcomes (dépenses)
 
-Nous avons mesuré deux nouvelles fonctionnalités sur la page des dépenses (outcomes) :
+Nous avons mesuré deux nouvelles fonctionnalités (le filtre n'ayant aucun impact) sur la page des dépenses (outcomes) :
 1. **Ajout manuel de dépenses** : Permet à l'utilisateur d'ajouter une nouvelle dépense via un formulaire
 2. **Dashboard d'économies potentielles** : Affiche les 3 catégories de dépenses les plus fréquentes et calcule les économies possibles
 
-##### ✅ Consulter les dépenses (outcomes) completed
+##### ✅ Consulter les dépenses (outcomes)
 
 **MEASUREMENTS**
 ```
