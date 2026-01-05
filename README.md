@@ -82,7 +82,7 @@ L'EcoIndex d'une page (de A à G) est calculé (sources : [EcoIndex](https://ww
 - le poids des téléchargements,
 - le nombre d'éléments du document.
 
-Nous avons choisi de comparer l'impact des scénarios sur les services concurrents de Finary que nous avons identifiés, et réferencés dans la partie “Identification des concurrents”.
+Nous avons choisi de comparer l'impact de notre scénario principal (consultation des comptes) sur les services concurrents de Finary que nous avons identifiés, et réferencés dans la partie “Identification des concurrents”.
 
 | **Service** | **Score (sur 100)** | **Classe** |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ Nous avons choisi de comparer l'impact des scénarios sur les services concurren
 
 ## Business model
 
-## Bankin
+### Bankin
 
 Bankin fonctionne principalement sur un modèle freemium combiné à des services B2B et des partenariats
 
@@ -103,7 +103,7 @@ Bankin fonctionne principalement sur un modèle freemium combiné à des service
 - Des revenus sont générés via des partenariats (ex. cashback, offre de produits financiers partenaires via l’app, etc.)
 - Enfin, la société monétise l’accès à des APIs et des solutions Data pour l’analyse de transaction et la catégorisation, proposées en marque blanche
 
-## Linxo
+### Linxo
 
 Linxo combine le modèle freemium, les services premium, les partenariats financiers et une offre B2B avec sa filiale Linxo Connect
 
@@ -112,7 +112,7 @@ Linxo combine le modèle freemium, les services premium, les partenariats financ
 - Une part importante du business model est l’offre Linxo Connect qui propose une API d’agrégation bancaire et d’initiation de paiement sous licence de l’ACPR. Cette offre vise les banques, fintechs, experts-comptables et institutionnels qui souhaitent intégrer l’agrégation ou le paiement open banking dans leurs solutions (revenus B2B par abonnement ou usage)
 - Linxo bénéficie du soutien d’un grand groupe bancaire français et s’appuie sur la certification ISO 27001 pour rassurer partenaires et clients sur la sécurité
 
-## Revolut
+### Revolut
 
 Revolut est une néobanque au business model multi-leviers, à la fois B2C et B2B.
 
