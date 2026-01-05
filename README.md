@@ -609,7 +609,6 @@ Le composant `PotentialEconomy` calcule et affiche les 3 catégories de dépense
 
 La page Outcomes a un score légèrement inférieur (80 A vs 83 A) en raison du dashboard d'économies potentielles qui ajoute des éléments au DOM pour afficher les recommandations. Cependant, cette différence reste minime et le score reste dans la catégorie A.
 
-**Conclusion :**
 
 Les nouvelles fonctionnalités sont **très écoresponsables** car elles :
 - N'ajoutent pas de charge réseau significative
@@ -619,4 +618,46 @@ Les nouvelles fonctionnalités sont **très écoresponsables** car elles :
 
 Cette approche démontre qu'il est possible d'ajouter des fonctionnalités utiles sans dégrader l'impact environnemental de l'application.
 
+### Bilan du projet
 
+Au cours de ce projet, nous avons développé une application web de gestion de patrimoine en Vite.js qui se concentre sur deux fonctionnalités principales : le référencement simple des dépenses et l'identification des économies possibles.
+
+Durant ce semestre, nous avons du réaliser une application web, qui réponde à une vraie problématique, à un modèle économique viable et une infrastructure technique sobre au niveau energetique.
+
+Ce projet nous a permi d’acquerir de nouvelle connaissance sur le **volet technique** et de prendre conscience de plusieurs points sur le **volet humain**:
+
+D’un point de vue technique, nous avions quelques bases en React et quelques connaissance de Github mais nous avons acquis durant ce projet un bon nombre de nouvelle connaissance:
+
+**Vite js & Pico :**
+
+C’était la première fois que nous utilisions le framework Vite js. Nous avions l’habitude de réaliser nos projets en Next JS. Le premier point qui nous a frappés fut la rapidité d’exécution de la web app en Vite, par rapport aux applications Next JS. Nous nous sommes également rendu compte que le code n’était pas significativement plus long à réaliser de notre côté pour les fonctionnalités basiques que nous avions l’ambition de réaliser. En ce qui concerne le CSS, nous avions l’habitude d’utiliser les frameworks Tailwind ou Bootstrap (vue en LO07), pico CSS a été une petite surprise pour nous, bien plus minimaliste, il n’en est pas moins intéressant pour réaliser des petits projets ne demandant pas énormément d’esthétique.
+
+Ceci nous a fait prendre conscience de l’importance de bien choisir nos outils de développement en fonction de notre besoin, car chaque framework a une utilité spécifique et un impact environnemental plus ou moins fort.
+
+**Github CI/CD :**
+
+Même si nous en avions entendu parler, c’était la première fois que nous mettions vraiment en pratique un environnement CI/CD autour de notre projet avec GitHub Actions. Nous avons trouvé cette partie très intéressante, voir à quel point il est possible d’automatiser tout ou une partie de l’intégration de notre projet. Cependant ceci ne se fait pas sans effort, nous avons trouvé cela assez difficile à prendre en main car il est nécessaire de maitriser de nombreux outils avec lesquels nous n’étions pas forcément à l’aise (docker par exemple). Voir que les mesures d’impact environnementaux pouvaient aussi être automatisées montre bien l’éventail des possibilités possibles.
+
+**GreenFrame & EcoIndex :**
+
+C’est également la première fois que nous étions amenés à manipuler des outils pour mesurer l’impact énergétique des applications web. Nous avons trouvé qu’EcoIndex était assez simple d’utilisation avec son application bureau. D’un autre côté GreenFrame est un outil plus complet, mais avec lequel nous avons eu plus de mal, car il n’avait pas d’application similaire à celle d’EcoIndex. Dans tous les cas, nous avons pris conscience qu’il était assez simple d’évaluer l’impact environnemental d’un logiciel, que ce soit pendant le développement ou en production, et que cela pouvait vraiment nous aider à adopter une démarche plus écoresponsable.
+
+D’un point de vue humain, cette démarche de construction d’un service web le plus vert possible, autour d’un modèle économique viable, nous a amenés à plusieurs réflexions.
+
+Premièrement, nous avons pris conscience de toutes les mauvaises pratiques dont nous avons pris l’habitude en tant qu’utilisateurs et de l’ampleur de l’effet rebond.
+
+Pour la majorité des services que nous utilisons, tout est pensé pour garder notre attention, favoriser la rétention et maximiser notre confort. Par exemple, des vidéos de très haute résolution ou encore de nombreuses fonctionnalités « gadgets », qui sont très coûteuses en énergie et qui s’éloignent du produit initial. J’ai pris personnellement conscience que j’écoutais de la musique sur YouTube, mais que je laissais la vidéo en haute résolution alors que je ne la regardais même pas.
+
+L’effet rebond est particulièrement visible avec les services de vidéo. À notre adolescence, les systèmes de connexion n’étaient pas aussi performants, et les plateformes comme YouTube proposaient moins de contenus, avec des vidéos d’une qualité bien moins élevée qu’aujourd’hui. Avec l’avènement de la 5G et des appareils ultra-performants, YouTube, Instagram ou TikTok proposent des contenus avec une qualité vidéo incroyable et sans aucune friction. Sauf qu’au lieu de garder notre fréquence d’utilisation, nous regardons des vidéos en permanence.
+
+Le second point que nous avons réalisé est le manque d’intérêt des grandes entreprises à mettre en place ces bonnes pratiques. Lorsque nous avons analysé les sites de nos concurrents, nous avons réalisé que l’aspect « green » d’un site n’est pas du tout leur axe principal de travail. De prime abord, nous avions eu une réflexion unilatérale, et nous ne comprenions pas pourquoi les applications ne s’efforçaient pas de réduire leur empreinte carbone et de proposer des services plus sobres énergétiquement (ce qui pourrait potentiellement leur faire faire des économies). Mais au fur et à mesure, nous avons pris conscience de la problématique principale de chaque application : le modèle économique et la rentabilité.
+
+Il est, en effet, très compliqué d’allier sobriété énergétique et croissance des revenus. En revisitant les applications de nos concurrents, tout est pensé pour séduire l’utilisateur. Cela passe par un design très poussé et par des services sans aucune friction, sans une seconde d’attente. Cela implique l’utilisation de librairies complexes et coûteuses en énergie, mais qui permettent d’améliorer le taux d’utilisation et le sentiment que l’utilisateur achète un produit de qualité, ce qui, d’un point de vue économique, est bien plus rentable que la baisse de l'utilisation des ressources du site.
+
+De manière complètement transparente, il nous semble impossible que la sobriété des applications soit une priorité au sein du modèle de développement actuel de ces entreprises.
+
+Tout comme les autres secteurs gourmands en énergie, comme l’agriculture ou le transport, nous pensons que ceux qui peuvent minimiser ces impacts sont les institutions réglementaires (soumettre des normes strictes et claires) et les utilisateurs / consommateurs.
+
+### Perspectives d'amélioration
+
+Pour améliorer l'application, nous pourrions d'abord implémenter un système d'authentification complet pour gérer plusieurs utilisateurs réels, et affiner l'algorithme de détection des doublons pour proposer des conseils plus personnalisés. À moyen terme, l'ajout d'un service worker permettrait un mode hors-ligne et réduirait les requêtes réseau. Enfin, pour passer à l'échelle, il faudrait tester l'application avec de vrais utilisateurs et envisager l'intégration aux API bancaires pour automatiser l'import des transactions, tout en veillant à ne pas augmenter excessivement l'empreinte environnementale.
