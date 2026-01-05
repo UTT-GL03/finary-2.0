@@ -615,7 +615,7 @@ Les nouvelles fonctionnalités sont **très écoresponsables** car elles :
 - N'ajoutent pas de charge réseau significative
 - Réutilisent les données déjà chargées pour les calculs
 - Maintiennent un excellent EcoIndex (80 A)
-- Suivent le principe de **"write light, read heavy"** : l'envoi de données est beaucoup moins coûteux que le chargement de grandes quantités de données
+- Et l'envoi de données est beaucoup moins coûteux que le chargement de grandes quantités de données
 
 Cette approche démontre qu'il est possible d'ajouter des fonctionnalités utiles sans dégrader l'impact environnemental de l'application.
 
