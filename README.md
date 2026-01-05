@@ -618,6 +618,8 @@ Les nouvelles fonctionnalités sont **très écoresponsables** car elles :
 
 Cette approche démontre qu'il est possible d'ajouter des fonctionnalités utiles sans dégrader l'impact environnemental de l'application.
 
+Nous faisons donc le choix de garder ces foncitonnalités au vue du faible impact qu'elles peuvent avoir. Le principal risque étant que les utilisateurs passent plus de temps sur notre application avec ces ajouts, ce qui engendrerai une plus consommation plus élevé de l'écran. Cependant notre application dans l'ensemble à un design qui favorise une utilisation succinte à une fréquence plus élevé (exemple : 3 * 2 min par jour). La visualisation des données avec nos graphiques va dans ce sens en facilitant une lecture rapide et globale des dépenses / revenus.
+
 ### Bilan du projet
 
 Au cours de ce projet, nous avons développé une application web de gestion de patrimoine en Vite.js qui se concentre sur deux fonctionnalités principales : le référencement simple des dépenses et l'identification des économies possibles.
